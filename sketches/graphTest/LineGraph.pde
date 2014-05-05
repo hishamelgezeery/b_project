@@ -11,7 +11,7 @@ public class LineGraph {
   int sPmax;
   ArrayList xValues = new ArrayList();
   ArrayList yValues = new ArrayList();
-  Point[] points;
+  ArrayList<Point> points = new ArrayList<Point>();
   int pointCounter;
   int counter;
   boolean move = false;
@@ -22,6 +22,7 @@ public class LineGraph {
   float rb;             // Right border
   float bb;             // Bottom border
   float tb;             // Top borders
+  int actualLength;     // Length of side minus borderlength
 
 
   public LineGraph(int x, int y, int sideLength, String firstParameter, int fPmin, int fPmax, String secondParameter, int sPmin, int sPmax) {
@@ -39,31 +40,34 @@ public class LineGraph {
     wide = this.sideLength;
     high = this.sideLength; 
     lb = border;         
-    rb = wide - border;  
+    rb = (int)(wide - border);  
     bb = high - border;  
     tb = border;         
-    points = new Point[sideLength];
+    actualLength = this.sideLength - 80;
+    println(actualLength);
   }
   public void drawGraph() {
+    
     xAxis(firstParameter, lb, bb, rb);
     yAxis(secondParameter, lb, bb, tb);
     pointsReady();
     plot();
+    shift();
   }
-  public void frame () {
-    noStroke();
-    pushStyle();
-    fill(50);
-    rect(0, 0, width, border);    // Top mask
-    rect(0, bb, width, border);   // Bottom mask
-    rect(0, 0, border, height);   // Left mask
-    rect(rb, 0, border, height);  // Right mask
-    popStyle();
-  }
+//  public void frame () {
+//    noStroke();
+//    pushStyle();
+//    fill(50);
+//    rect(0, 0, width, border);    // Top mask
+//    rect(0, bb, width, border);   // Bottom mask
+//    rect(0, 0, border, height);   // Left mask
+//    rect(rb, 0, border, height);  // Right mask
+//    popStyle();
+//  }
   void xAxis (String axisTitle, float xl, float y, float xr) {
     pushStyle();
     stroke(250);
-    //strokeWeight(2);
+    strokeWeight(2);
     line(this.x+xl, this.y+y, this.x+xr, this.y+y);
     //lines 
     for (int i=1;i<=5;i++) {
@@ -78,22 +82,29 @@ public class LineGraph {
   }
   public void plot() {
     stroke(255);
-    for (int i=0;i<sideLength-1;i++) {
-        Point first = new Point();
-        Point second = new Point();
-      if (points[i]!=null)
-        first = (Point)points[i];
-      if (points[i+1]!=null)
-        second = points[i+1];
-      if (first.x!=-1 && second.x!=-1) {
-        line(first.x, first.y, second.x, second.y);
-      }
+    strokeWeight(2);
+    if(points.size()>2)
+    for (int i=0;i<points.size();i++) {
+        if(points.size()>i+1){  
+        Point first = points.get(i);
+        Point second = points.get(i+1);
+        line(first.x, first.y, second.x, second.y);        
+        }
     }
   }
+  public void shift(){
+    if(move)
+    for(int i=0;i<points.size();i++){
+      Point temp = points.get(i);
+      temp.x--;
+      points.set(i,temp);
+    }
+  }
+
   void yAxis (String axisTitle, float x, float yb, float yt) {
     pushStyle();
     stroke(250);
-    //strokeWeight(2);
+    strokeWeight(2);
     line(this.x+x, this.y+yb, this.x+x, this.y+yt);
     // lines
     for (int i=1;i<=5;i++) {
@@ -111,40 +122,17 @@ public class LineGraph {
       counter%=100;
   }
   public void pointsReady() {
-    Point temp = new Point(x+lb+pointCounter, this.y+bb-2*counter);
+    if(move)
+      points.remove(0);
+    Point temp = new Point(this.x+lb+pointCounter, this.y+bb-2*counter);
     
-    if(temp.x == this.x+rb){
+    if(temp.x-x == actualLength+40){
       move = true;
-      temp.x--;
     }
     else{
       pointCounter++;
     }
-    if(move){
-    for(int i = 0;i<sideLength-1;i++){
-        points[i].x--;
-        if(points[i].x<x+lb)
-          points[i]=new Point();
-      
-    }
-    }
-    for (int i=sideLength-1;i>1;i--) {
-      points[i-2] = points[i-1];
-      points[i-1] = points[i];
-//      if(points[i-2]!=null)
-//      points[i-2].x--;
-//      if(points[i-1]!=null)
-//      points[i-1].x--;
-    }
-    boolean empty = false;
-    for(int i =0;i<sideLength;i++){
-      if (points[i]==null){
-        empty = true;
-        points[i] = temp;
-      }
-    }
-    if(!empty)
-    points[sideLength-1] = temp;
+    points.add(temp);
   }
 
   public class Point {
