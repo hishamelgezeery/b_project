@@ -42,20 +42,23 @@ LineGraph graph;
 //------------------variables------------------//
 
 void setup() {  
-  frameRate(25);
+  frameRate(20);
   f1 = createFont("Arial", 20, true);
   f2 = createFont("Arial", 15, true);
   f3 = createFont("Arial", 30, true);
-  stroke(255);
+  stroke(177);
   smooth();
-  progressBar = new ProgressBar(counter, 50, 400, 0, 1000, 50, -350, 600);
+  initialize();
+}
+
+void initialize(){
+  progressBar = new ProgressBar(counter, 50, 400, 0, 1000, 50, 80, 800);
   gauge = new Gauge(counter, 250, 0, 1000, 450, 250);
   vScrollbar = new VScrollbar(50, 20, 40, 300, 4, 0, 100, color(255, 255, 255), color(225, 225, 225), color(245, 0, 0), color(225, 0, 0), color(195, 0, 0));
-  graph = new LineGraph(counter, -300, 200, 400, "Time", 0, 50, "Counter", 0, 200);
+  graph = new LineGraph(counter, 160, 500, 400, "Time", 0, 50, "Counter", 0, 200);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void draw() {
-  counter++;
   switch(status)
   {
   case 0:
@@ -75,6 +78,10 @@ void draw() {
     progressBar.draw();
     graph.updateCounter(counter);
     graph.drawGraph();
+    pushStyle();
+    textFont(f3);
+    text("Counter=" + counter, -240, 150);
+    popStyle();
     if (vScrollbar.ready) {
       sendValue();
     }
@@ -211,6 +218,7 @@ void connectDevice()
     ins = socket.getInputStream();     
     ons = socket.getOutputStream();     
     sc = new Scanner(ins);
+    initialize();
     status = 3;
   }   
   catch(Exception ex)   

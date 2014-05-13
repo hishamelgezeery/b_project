@@ -22,7 +22,7 @@ public class Gauge {
 
     pushStyle();
     fill(0, 0, 0);
-    text("km/h", -10, 30);
+    text("km/h", x-10, y+30);
     stroke(0, 0, 0);
 
     for ( int i=0; i<=10; i++) {
@@ -53,11 +53,10 @@ public class Gauge {
   void draw() {
     //background(255, 255, 255);
     pushStyle();
-    translate(x, y);
     fill(255, 255, 255);  
     stroke( 205, 201, 201);
     strokeWeight(2);
-    ellipse(0, 0, radius, radius); 
+    ellipse(x, y, radius, radius); 
     drawGauge();
     popStyle();
   }
