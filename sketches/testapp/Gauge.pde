@@ -29,15 +29,15 @@ public class Gauge {
       float a = radians(130 + 28*i);
       float r1 = 100*ratio;
       float r2 = 90*ratio;
-      line( r1*cos(a), r1*sin(a), r2*cos(a), r2*sin(a));
+      line( x+ r1*cos(a), y+r1*sin(a), x+r2*cos(a), y+r2*sin(a));
       if (i<4)
-        text( (int)(min +(((float)max-min)/10)*i), r2*cos(a)+2, r2*sin(a)+4);
+        text( (int)(min +(((float)max-min)/10)*i), x+r2*cos(a)+2, y+r2*sin(a)+6);
       else if (i<7)
-        text( (int)(min +(((float)max-min)/10)*i), r2*cos(a)-8, r2*sin(a)+14);
+        text( (int)(min +(((float)max-min)/10)*i), x+r2*cos(a)-10, y+r2*sin(a)+18);
       else if (i<10)
-        text( (int)(min +(((float)max-min)/10)*i), r2*cos(a)-20, r2*sin(a)+4);
+        text( (int)(min +(((float)max-min)/10)*i), x+r2*cos(a)-24, y+r2*sin(a)+8);
       else
-        text( (int)(min +(((float)max-min)/10)*i), r2*cos(a)-25, r2*sin(a)+2);
+        text( (int)(min +(((float)max-min)/10)*i), x+r2*cos(a)-30, y+r2*sin(a)-2);
     }
     popStyle();
     float b = radians( 130 + ((((float)value%max)/max)*280));
@@ -46,7 +46,7 @@ public class Gauge {
     stroke( 205, 201, 201);
     ellipse(0, 0, 10, 10); 
     stroke(255, 0, 0);
-    line( -10*cos(b), -10*sin(b), 100 * cos(b)*ratio, 100 * sin(b)*ratio);
+    line( x-10*cos(b), y-10*sin(b), x+100 * cos(b)*ratio, y+100 * sin(b)*ratio);
     popStyle();
   }
 
@@ -61,13 +61,10 @@ public class Gauge {
     popStyle();
   }
 
-  public void incrementValue() {
-    if ( value <= this.max ) {
-      this.value+=0.3;
-    }
-    else {
-      println("progress finished.");
-    }
+ public void update(int counter)
+  {
+    value = counter;
+    value %= 100;
   }
 }
 
