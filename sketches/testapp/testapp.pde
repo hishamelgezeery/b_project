@@ -26,14 +26,11 @@ BluetoothSocket socket;
 InputStream ins;
 Scanner sc;
 OutputStream ons;
-boolean registered = false;
 PFont f1;
 PFont f2;
 PFont f3;
 int status;
-int count = 0;
 String error;
-char value;
 int counter = 0;
 Gauge gauge;
 ProgressBar progressBar;
@@ -82,7 +79,7 @@ void draw() {
     graph.drawGraph();
     pushStyle();
     textFont(f3);
-    text("Counter=" + counter, -240, 150);
+    text("Counter=" + counter, 100, 150);
     popStyle();
     if (vScrollbar.ready) {
       sendValue();

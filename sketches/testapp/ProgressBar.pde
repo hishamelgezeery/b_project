@@ -1,18 +1,16 @@
 
 public class ProgressBar
 {
-  private int x; 
-  private int y;
-  private int barWidth;
-  private int barHeight;
-  private int heightProgress;
-  private float value;
-  private int minValue;
-  private int maxValue;
-  private PFont font;
-  private color backgroundColor;
-  private color progressColor;
-  private int sizeFont;
+    private int x; 
+    private int y;
+    private int barWidth;
+    private int barHeight;
+    private int heightProgress;
+    private float value;
+    private int minValue;
+    private int maxValue;
+    private color backgroundColor;
+    private color progressColor;
 
   public ProgressBar(float counter, int barWidth, int barHeight, int minValue, int maxValue, int heightProgress, int x, int y)
   {

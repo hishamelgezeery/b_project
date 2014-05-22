@@ -1,7 +1,7 @@
 public class LineGraph {
-  private int x; //represents the 0 x-coordinate of the graph
-  private int y; //represents the 0 y-coordinate of the graph
-  private int sideLength; //represents the length of the sides of the graph -- min_length is 300px
+  int x; //represents the 0 x-coordinate of the graph
+  int y; //represents the 0 y-coordinate of the graph
+  int sideLength; //represents the length of the sides of the graph -- min_length is 300px
   String firstParameter;
   int fPmin; // represents the first parameter's min value
   int fPmax;
@@ -42,7 +42,6 @@ public class LineGraph {
     bb = high - border;  
     tb = border;         
     actualLength = this.sideLength - 80;
-    println(actualLength);
   }
   public void drawGraph() {
     xAxis(firstParameter, lb, bb, rb);

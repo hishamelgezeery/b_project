@@ -51,7 +51,6 @@ public class Gauge {
   }
 
   void draw() {
-    //background(255, 255, 255);
     pushStyle();
     fill(255, 255, 255);  
     stroke( 205, 201, 201);
