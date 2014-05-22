@@ -52,8 +52,8 @@ void setup() {
 }
 
 void initialize(){
-  progressBar = new ProgressBar(counter, 50, 400, 0, 1000, 50, 80, 800);
-  gauge = new Gauge(counter, 250, 0, 1000, 450, 250);
+  progressBar = new ProgressBar(counter, 50, 400, 0, 100, 50, 80, 800);
+  gauge = new Gauge(counter, 250, 0, 100, 450, 250);
   vScrollbar = new VScrollbar(50, 20, 40, 300, 4, 0, 100, color(255, 255, 255), color(225, 225, 225), color(245, 0, 0), color(225, 0, 0), color(195, 0, 0));
   graph = new LineGraph(counter, 160, 500, 400, "Time", 0, 50, "Counter", 0, 200);
 }
@@ -74,7 +74,9 @@ void draw() {
     showData();
     vScrollbar.update();
     vScrollbar.display();
+    gauge.update(counter);
     gauge.draw();
+    progressBar.update(counter);
     progressBar.draw();
     graph.updateCounter(counter);
     graph.drawGraph();
