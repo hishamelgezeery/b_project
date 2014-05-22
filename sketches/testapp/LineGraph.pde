@@ -59,7 +59,7 @@ public class LineGraph {
     //lines 
     for (int i=1;i<=5;i++) {
       line(this.x+xl-i*((xl-xr)/5), this.y+y, this.x+xl-i*((xl-xr)/5), this.y+y+10);
-      text(i*((fPmax-fPmin)/5), this.x+xl-i*((xl-xr)/5)-15, this.y+y+25);
+      text(i*((fPmax-fPmin)/5), this.x+xl-i*((xl-xr)/5)-15, this.y+y+30);
     }
     fill(250);
     textSize(20);
