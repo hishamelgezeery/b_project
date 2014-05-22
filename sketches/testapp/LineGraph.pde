@@ -8,8 +8,6 @@ public class LineGraph {
   String secondParameter;
   int sPmin;
   int sPmax;
-  ArrayList xValues = new ArrayList();
-  ArrayList yValues = new ArrayList();
   ArrayList<Point> points = new ArrayList<Point>();
   int pointCounter;
   int counter;
@@ -53,16 +51,6 @@ public class LineGraph {
     plot();
     shift();
   }
-  //  public void frame () {
-  //    noStroke();
-  //    pushStyle();
-  //    fill(50);
-  //    rect(0, 0, width, border);    // Top mask
-  //    rect(0, bb, width, border);   // Bottom mask
-  //    rect(0, 0, border, height);   // Left mask
-  //    rect(rb, 0, border, height);  // Right mask
-  //    popStyle();
-  //  }
   void xAxis (String axisTitle, float xl, float y, float xr) {
     pushStyle();
     stroke(250);
@@ -71,7 +59,7 @@ public class LineGraph {
     //lines 
     for (int i=1;i<=5;i++) {
       line(this.x+xl-i*((xl-xr)/5), this.y+y, this.x+xl-i*((xl-xr)/5), this.y+y+10);
-      text(i*((fPmax-fPmin)/5), this.x+xl-i*((xl-xr)/5), this.y+y+25);
+      text(i*((fPmax-fPmin)/5), this.x+xl-i*((xl-xr)/5)-15, this.y+y+25);
     }
     fill(250);
     textSize(20);
@@ -88,7 +76,10 @@ public class LineGraph {
     // lines
     for (int i=1;i<=5;i++) {
       line(this.x+x, this.y+yb-i*((yb-yt)/5), this.x+x-10, this.y+yb-i*((yb-yt)/5));
-      text(i*((sPmax-sPmin)/5), this.x+x-25, this.y+yb-i*((yb-yt)/5));
+      if((i*((sPmax-sPmin)/5))/10 >=10)
+      text(i*((sPmax-sPmin)/5), this.x+x-45, this.y+yb-i*((yb-yt)/5)+5);
+      else
+      text(i*((sPmax-sPmin)/5), this.x+x-35, this.y+yb-i*((yb-yt)/5)+5);
     }
     fill(250);
     textSize(20);
