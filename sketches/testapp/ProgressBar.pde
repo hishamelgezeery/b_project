@@ -77,29 +77,27 @@ public class ProgressBar
   }
 
 
-  public void incrementValue()
+  public void update(int counter)
   {
-    if ( value <= this.maxValue )
-    {
-      this.value+=0.3;
-    }
-    else
-    {
-      println("progress finished.");
-    }
+    value = counter;
+    value %=100;
   }
 
   public void drawLines() {
     for (int i=0;i<=10;i++) {
       strokeWeight(2);
       if (i%2==0) {
-        if (i!=10) {
+        if (i==0){
           line(x-barWidth/2-5, y-(((float)i/10)*barHeight)-2, (x-barWidth/2)-15, y-(((float)i/10)*barHeight)-2);
-          text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-30, y-(((float)i/10)*barHeight)-4);
+          text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-30, y-(((float)i/10)*barHeight)+4);
+        }
+        else if (i!=10) {
+          line(x-barWidth/2-5, y-(((float)i/10)*barHeight)-2, (x-barWidth/2)-15, y-(((float)i/10)*barHeight)-2);
+          text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-40, y-(((float)i/10)*barHeight)+4);
         }
         else {
           line(x-barWidth/2-5, y-(((float)i/10)*barHeight)+2, (x-barWidth/2)-15, y-(((float)i/10)*barHeight)+2);
-          text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-30, y-(((float)i/10)*barHeight)+2);
+          text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-50, y-(((float)i/10)*barHeight)+8);
         }
       }
       else {
