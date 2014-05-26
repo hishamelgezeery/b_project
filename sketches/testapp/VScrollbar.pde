@@ -1,20 +1,20 @@
 public class VScrollbar
 {
-  int barWidth, barHeight; // width and height of bar. NOTE: barWidth also used as slider button height.
-  int Xpos, Ypos;          // upper-left position of bar
-  float Spos, newSpos;     // y (upper) position of slider
-  int SposMin, SposMax;    // max and min values of slider
-  int min, max;            // max and min values of the measurement
-  int loose;               // how loose/heavy
-  boolean over;            // True if hovering over the scrollbar
-  boolean locked;          // True if a mouse button is pressed while on the scrollbar
-  boolean ready;
-  int currentValue;
-  color barOutlineCol;
-  color barFillCol;
-  color barHoverCol;
-  color sliderFillCol;
-  color sliderPressCol;
+  private int barWidth, barHeight; // width and height of bar. NOTE: barWidth also used as slider button height.
+  private int Xpos, Ypos;          // upper-left position of bar
+  private float Spos, newSpos;     // y (upper) position of slider
+  private int SposMin, SposMax;    // max and min values of slider
+  private int min, max;            // max and min values of the measurement
+  private int loose;               // how loose/heavy
+  private boolean over;            // True if hovering over the scrollbar
+  private boolean locked;          // True if a mouse button is pressed while on the scrollbar
+  private boolean ready;           // true if mouse button has been released so that value can be updated
+  private int currentValue;        // the current value as an integer
+  private color barOutlineCol;     // the color of the bar outline
+  private color barFillCol;        // the color of the bar filling
+  private color barHoverCol;       // the color of the bar while hovering
+  private color sliderFillCol;     // the color of the slider filling
+  private color sliderPressCol;    // the color of the slider while being pressed
 
   public VScrollbar (int X_start, int Y_start, int bar_width, int bar_height, int loosiness, int min, int max, 
   color bar_outline, color bar_background, color slider_bg, color barHover, color slider_press) {

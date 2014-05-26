@@ -1,18 +1,18 @@
 
 public class ProgressBar
 {
-    private int x; 
-    private int y;
-    private int barWidth;
-    private int barHeight;
-    private int heightProgress;
-    private float value;
-    private int minValue;
-    private int maxValue;
-    private color backgroundColor;
-    private color progressColor;
+  private int x;  // x-position of the progressBar
+  private int y;  // y-position of the progressBar
+  private int barWidth;  // width of the progressBar
+  private int barHeight;  // height of the progressBar
+  private int heightProgress;  // height of the progress of the value measured
+  private float value;  // the current value of the measurement
+  private int minValue;  // minimum value of the progressBar
+  private int maxValue;  // maximum value of the progressBar
+  private color backgroundColor;  // background color of the progressBar
+  private color progressColor;  // progress color of the progressBar
 
-  public ProgressBar(float counter, int barWidth, int barHeight, int minValue, int maxValue, int heightProgress, int x, int y)
+    public ProgressBar(float counter, int barWidth, int barHeight, int minValue, int maxValue, int heightProgress, int x, int y)
   {
     this.barWidth=barWidth;
     this.barHeight=barHeight; 
@@ -85,7 +85,7 @@ public class ProgressBar
     for (int i=0;i<=10;i++) {
       strokeWeight(2);
       if (i%2==0) {
-        if (i==0){
+        if (i==0) {
           line(x-barWidth/2-5, y-(((float)i/10)*barHeight)-2, (x-barWidth/2)-15, y-(((float)i/10)*barHeight)-2);
           text((int)(((float)i/10)*(maxValue-minValue)), (x-barWidth/2)-30, y-(((float)i/10)*barHeight)+4);
         }
@@ -118,6 +118,7 @@ public class ProgressBar
     line(this.x, this.y, this.x, this.y-(currentValue*barHeight));
     popStyle();
   }
+
   int getValue() {
     return (int)(value%maxValue)/maxValue;
   }

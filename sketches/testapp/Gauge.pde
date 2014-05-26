@@ -1,11 +1,11 @@
 public class Gauge {
-  private int x;
-  private int y;
-  private int radius;
-  private float value;
-  private int min;
-  private int max;
-  private final float ratio;
+  private int x;  // this is the x-value of the center of the gauge
+  private int y;  // this is the y-value of the center of the gauge
+  private int radius;  // this is the radius of the gauge
+  private float value;  // this is the value to be presented
+  private int min;  // minimum value of the gauge
+  private int max;  // maximum value of the gauge
+  private final float ratio;  // ratio used to re-size the gauge with relation to the radius
 
   public Gauge(float counter, int radius, int min, int max, int x, int y) {
     this. min = min;
@@ -60,7 +60,7 @@ public class Gauge {
     popStyle();
   }
 
- public void update(int counter)
+  public void update(int counter)
   {
     value = counter;
     value %= 100;

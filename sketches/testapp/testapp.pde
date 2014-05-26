@@ -18,24 +18,24 @@ import java.text.DecimalFormat;
 import java.nio.charset.Charset;
 //------------------imports------------------//
 
-private static final int REQUEST_ENABLE_BT = 3;
-ArrayList devices;
-BluetoothAdapter adapter;
-BluetoothDevice device;
-BluetoothSocket socket;
-InputStream ins;
-Scanner sc;
-OutputStream ons;
-PFont f1;
-PFont f2;
-PFont f3;
-int status;
-String error;
-int counter = 0;
-Gauge gauge;
-ProgressBar progressBar;
-VScrollbar vScrollbar;
-LineGraph graph;
+private static final int REQUEST_ENABLE_BT = 3; // used to prompt the user to switch on bluetooth
+private ArrayList devices;  // arraylist of paired devices to be displayed
+private BluetoothAdapter adapter;
+private BluetoothDevice device;
+private BluetoothSocket socket;
+private InputStream ins;
+private Scanner sc;
+private OutputStream ons;
+private PFont f1;
+private PFont f2;
+private PFont f3;
+private int status;  // this is used to show the appropriate stage of the application. Eg. DeviceList for connection
+private String error;  // A string representing the exception raised to be presented on the error screen
+private int counter = 0;
+private Gauge gauge;
+private ProgressBar progressBar;
+private VScrollbar vScrollbar;
+private LineGraph graph;
 //------------------variables------------------//
 
 void setup() {  
@@ -48,13 +48,13 @@ void setup() {
   initialize();
 }
 
-void initialize(){
+void initialize() {
   progressBar = new ProgressBar(counter, 50, 400, 0, 100, 50, 80, 800);
   gauge = new Gauge(counter, 250, 0, 100, 450, 250);
   vScrollbar = new VScrollbar(50, 20, 40, 300, 4, 0, 100, color(255, 255, 255), color(225, 225, 225), color(245, 0, 0), color(225, 0, 0), color(195, 0, 0));
   graph = new LineGraph(counter, 160, 500, 400, "Time", 0, 50, "Counter", 0, 200);
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void draw() {
   switch(status)
   {
@@ -90,7 +90,7 @@ void draw() {
     break;
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void onStart()
 {
   super.onStart();
@@ -109,7 +109,7 @@ void onStart()
     }
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void onStop()
 {
   println("onStop");
@@ -127,7 +127,7 @@ void onStop()
   }
   super.onStop();
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void onActivityResult (int requestCode, int resultCode, Intent data)
 {
   println("onActivityResult");
@@ -143,7 +143,7 @@ void onActivityResult (int requestCode, int resultCode, Intent data)
     error = "bluetooth is not activated";
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void mouseReleased()
 {
   checkDisconnectButton();
@@ -160,7 +160,7 @@ void mouseReleased()
     break;
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void begin()
 {
   devices = new ArrayList();
@@ -171,7 +171,7 @@ void begin()
   }
   status = 1;
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void devicesList(String text, color c)
 {
   background(0);
@@ -196,7 +196,7 @@ void devicesList(String text, color c)
     }
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void checkSelected()
 {
   int selected = (mouseY - 50) / 55;
@@ -207,7 +207,7 @@ void checkSelected()
     status = 2;
   }
 } 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
 void connectDevice() 
 {   
   try   
@@ -227,7 +227,7 @@ void connectDevice()
     println(error);
   }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
 void showData() 
 {   
   background(0);
@@ -238,7 +238,6 @@ void showData()
   popStyle();
   pushStyle();
   fill(255);
-  //---read lines and display
   try {
     if (ins.available()>0) {
       String temp = sc.nextLine();
@@ -260,7 +259,7 @@ void showData()
     error = e.toString();
     println(error);
   }
-  //-- end of reading lines
+
   pushStyle();
   textFont(f1);
   stroke(255, 255, 0);
@@ -274,7 +273,7 @@ void showData()
   popStyle();
   popStyle();
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void sendValue() {
   try
   {
@@ -308,7 +307,7 @@ void checkButton()
     }
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void checkDisconnectButton()
 {
   println("got here ");
@@ -343,7 +342,7 @@ void checkDisconnectButton()
     status = 1;
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void showError()
 {
   background(255, 0, 0);
