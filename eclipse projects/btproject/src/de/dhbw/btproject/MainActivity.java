@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
    private ArrayList<BluetoothDevice> pairedDevices;
    private ListView myListView;
    private ArrayAdapter<String> BTArrayAdapter;
+// Return Intent extra
+   public static String EXTRA_DEVICE_ADDRESS = "device_address";
   
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -107,14 +109,26 @@ public class MainActivity extends Activity {
 	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 	                    long arg3) {
 	            	BluetoothDevice selected = pairedDevices.get(arg2);
-	            	Toast.makeText(getApplicationContext(),selected.getName(),
-	                		 Toast.LENGTH_LONG).show();
+	            	Toast.makeText(getApplicationContext(),arg2 +"",
+	                 		 Toast.LENGTH_LONG).show();
+	            	Intent intent = new Intent(arg1.getContext(), DetailsActivity.class);
+	            	intent.putExtra("device_index", arg2);
+				    startActivity(intent);
 	            }
+	            
 
 	        });
       }
    }
 
+   private void ensureDiscoverable() {
+       if (myBluetoothAdapter.getScanMode() !=
+           BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+           Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+           discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+           startActivity(discoverableIntent);
+       }
+   }
    public void on(View view){
       if (!myBluetoothAdapter.isEnabled()) {
          Intent turnOnIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -180,6 +194,8 @@ public class MainActivity extends Activity {
 	   else {
 			BTArrayAdapter.clear();
 			myBluetoothAdapter.startDiscovery();
+			ensureDiscoverable();
+			
 			
 			registerReceiver(bReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));	
 		}    
