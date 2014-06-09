@@ -7,13 +7,16 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 
-import java.util.Set;
+import java.util.ArrayList;
 
 import de.dbhw.btproject.R;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +33,7 @@ public class MainActivity extends Activity {
    private Button findBtn;
    private TextView text;
    private BluetoothAdapter myBluetoothAdapter;
-   private Set<BluetoothDevice> pairedDevices;
+   private ArrayList<BluetoothDevice> pairedDevices;
    private ListView myListView;
    private ArrayAdapter<String> BTArrayAdapter;
   
@@ -98,6 +101,17 @@ public class MainActivity extends Activity {
 	      // create the arrayAdapter that contains the BTDevices, and set it to the ListView
 	      BTArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 	      myListView.setAdapter(BTArrayAdapter);
+	      myListView.setOnItemClickListener(new OnItemClickListener() {
+
+	            @Override
+	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+	                    long arg3) {
+	            	BluetoothDevice selected = pairedDevices.get(arg2);
+	            	Toast.makeText(getApplicationContext(),selected.getName(),
+	                		 Toast.LENGTH_LONG).show();
+	            }
+
+	        });
       }
    }
 
@@ -129,7 +143,11 @@ public class MainActivity extends Activity {
    
    public void list(View view){
 	  // get paired devices
-      pairedDevices = myBluetoothAdapter.getBondedDevices();
+	   pairedDevices = new ArrayList();
+	   for (BluetoothDevice device : myBluetoothAdapter.getBondedDevices())
+	   {
+		   pairedDevices.add(device);
+	   }
       
       // put it's one to the adapter
       for(BluetoothDevice device : pairedDevices)
