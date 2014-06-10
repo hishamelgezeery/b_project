@@ -34,6 +34,10 @@ public class MainActivity extends Activity {
    private TextView text;
    private BluetoothAdapter myBluetoothAdapter;
    private ArrayList<BluetoothDevice> pairedDevices;
+   private ArrayList<BluetoothDevice> foundDevices;
+   private boolean deviceAvailableCheck;
+   private BluetoothDevice selected;
+   private int deviceIndex;
    private ListView myListView;
    private ArrayAdapter<String> BTArrayAdapter;
 // Return Intent extra
@@ -44,7 +48,7 @@ public class MainActivity extends Activity {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
       ImageView image = (ImageView) findViewById(R.id.dhbwlogo_image);
-      
+      foundDevices = new ArrayList<BluetoothDevice>();
       // take an instance of BluetoothAdapter - Bluetooth radio
       myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
       if(myBluetoothAdapter == null) {
@@ -108,12 +112,11 @@ public class MainActivity extends Activity {
 	            @Override
 	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 	                    long arg3) {
-	            	BluetoothDevice selected = pairedDevices.get(arg2);
-	            	Toast.makeText(getApplicationContext(),arg2 +"",
-	                 		 Toast.LENGTH_LONG).show();
-	            	Intent intent = new Intent(arg1.getContext(), DetailsActivity.class);
-	            	intent.putExtra("device_index", arg2);
-				    startActivity(intent);
+	            	 selected = pairedDevices.get(arg2);
+	            	 deviceIndex = arg2;
+	            	deviceAvailableCheck = true;
+	            	find(arg1);
+	            	
 	            }
 	            
 
@@ -128,6 +131,20 @@ public class MainActivity extends Activity {
            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
            startActivity(discoverableIntent);
        }
+   }
+   
+   public void connect() {
+   	if(foundDevices.contains(selected)){
+   	Toast.makeText(getApplicationContext(),"Connected to: "+selected.getName(),
+        		 Toast.LENGTH_LONG).show();
+   	Intent intent = new Intent(this, DetailsActivity.class);
+   	intent.putExtra("device_index", deviceIndex);
+	    startActivity(intent);
+   	}
+   	else {
+   		Toast.makeText(getApplicationContext(),"Can't connect to device!",
+            		 Toast.LENGTH_LONG).show();
+   	}
    }
    public void on(View view){
       if (!myBluetoothAdapter.isEnabled()) {
@@ -164,6 +181,7 @@ public class MainActivity extends Activity {
 	   }
       
       // put it's one to the adapter
+		BTArrayAdapter.clear();
       for(BluetoothDevice device : pairedDevices)
     	  BTArrayAdapter.add(device.getName()+ "\n" + device.getAddress());
 
@@ -180,8 +198,23 @@ public class MainActivity extends Activity {
 	             // Get the BluetoothDevice object from the Intent
 	        	 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 	        	 // add the name and the MAC address of the object to the arrayAdapter
+	        	 if(!deviceAvailableCheck){
 	             BTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 	             BTArrayAdapter.notifyDataSetChanged();
+	        	 }
+	        	 else{
+	        		 foundDevices.add(device);
+	        	 }
+	             Log.d("ew3a", "weshak");
+	        	 
+	        }
+	        else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+	             // Get the BluetoothDevice object from the Intent
+	        	if(deviceAvailableCheck){
+	        		connect();
+	        		deviceAvailableCheck = false;
+	        	}
+	        	 
 	        }
 	    }
 	};
@@ -194,10 +227,10 @@ public class MainActivity extends Activity {
 	   else {
 			BTArrayAdapter.clear();
 			myBluetoothAdapter.startDiscovery();
-			ensureDiscoverable();
 			
 			
-			registerReceiver(bReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));	
+			registerReceiver(bReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
+			registerReceiver(bReceiver, new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED));
 		}    
    }
    
