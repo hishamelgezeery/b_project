@@ -1,7 +1,15 @@
 package de.dhbw.btproject;
 
 import java.util.Locale;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.UUID;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import de.dbhw.btproject.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,13 +18,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetailsActivity extends FragmentActivity {
 
@@ -29,6 +41,13 @@ public class DetailsActivity extends FragmentActivity {
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
+	private Button backBtn;
+	private BluetoothAdapter adapter;
+	private BluetoothDevice device;
+	private BluetoothSocket socket;
+	private InputStream ins;
+	private OutputStream ons;
+	private ArrayList<BluetoothDevice> pairedDevices;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -39,7 +58,41 @@ public class DetailsActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_view);
-
+//=======================================
+		pairedDevices = new ArrayList<BluetoothDevice>();
+		   for (BluetoothDevice device : BluetoothAdapter.getDefaultAdapter().getBondedDevices())
+		   {
+			   pairedDevices.add(device);
+		   }
+		backBtn = (Button) findViewById(R.id.button1);
+		backBtn.setOnClickListener(new OnClickListener() {
+	  		
+	  		@Override
+	  		public void onClick(View v) {
+	  			// TODO Auto-generated method stub
+	  			disconnect();
+	  			finish();
+	  		}
+	      });
+		BluetoothDevice device = pairedDevices.get(getIntent().getIntExtra("device_index", -1));
+		Log.d("btdevice", device.getName());
+		try{
+		socket = device.createRfcommSocketToServiceRecord(UUID
+				.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+		socket.connect();
+		ins = socket.getInputStream();
+		ons = socket.getOutputStream();
+		Toast.makeText(getApplicationContext(), "Connection Successful",
+       		 Toast.LENGTH_LONG).show();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			Toast.makeText(getApplicationContext(),"Connection Lost",
+        		 Toast.LENGTH_LONG).show();
+			Intent intent = new Intent(getBaseContext(), MainActivity.class);
+			startActivity(intent);
+		}
+		//===========================================
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -48,6 +101,34 @@ public class DetailsActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
+	}
+	
+	private void disconnect(){
+		 if (socket != null) {
+		      try {
+		        socket.close();
+		      } 
+		      catch (Exception e) {
+		      }
+		      socket = null;
+		    }
+		    if (ins != null) {
+		      try {
+		        ins.close();
+		      } 
+		      catch (Exception e) {
+		      }
+		      ins = null;
+		    }
+		    if (ons != null) {
+		      try {
+		        ons.close();
+		      } 
+		      catch (Exception e) {
+		      }
+		      ons = null;
+		    }
+		    device = null;
 	}
 
 	@Override
