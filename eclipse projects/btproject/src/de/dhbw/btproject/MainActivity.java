@@ -135,8 +135,6 @@ public class MainActivity extends Activity {
    
    public void connect() {
    	if(foundDevices.contains(selected)){
-   	Toast.makeText(getApplicationContext(),"Connected to: "+selected.getName(),
-        		 Toast.LENGTH_LONG).show();
    	Intent intent = new Intent(this, DetailsActivity.class);
    	intent.putExtra("device_index", deviceIndex);
 	    startActivity(intent);
@@ -204,8 +202,14 @@ public class MainActivity extends Activity {
 	        	 }
 	        	 else{
 	        		 foundDevices.add(device);
+	        		 if(selected.equals(device)){
+	        			 deviceAvailableCheck = false;
+	        			 connect();
+	        			 myBluetoothAdapter.cancelDiscovery();
+	        		 }
+	        		 
 	        	 }
-	             Log.d("ew3a", "weshak");
+	             Log.d("Device found:", device.getName());
 	        	 
 	        }
 	        else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
