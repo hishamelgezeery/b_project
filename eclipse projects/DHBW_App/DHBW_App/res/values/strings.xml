@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DHBWApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="GPS">GPS-Karte</string>
+    <string name="Verlauf">Verläufe</string>
+    <string name="title_activity_verlauf">Verlauf</string>
+    <string name="title_activity_gps_">GPS_Activity</string>
+
+    <!-- Options Menu -->
+    <string name="action_settings">Settings</string>
+
+
+</resources>
