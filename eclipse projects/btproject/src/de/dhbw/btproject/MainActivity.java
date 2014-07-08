@@ -1,14 +1,15 @@
 package de.dhbw.btproject;
 
 import android.os.Bundle;
+import android.os.ParcelUuid;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-
 import java.util.ArrayList;
-
 import de.dbhw.btproject.R;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -109,16 +110,16 @@ public class MainActivity extends Activity {
 	      myListView.setAdapter(BTArrayAdapter);
 	      myListView.setOnItemClickListener(new OnItemClickListener() {
 
-	            @Override
+	          @Override
 	            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 	                    long arg3) {
 	            	 selected = pairedDevices.get(arg2);
 	            	 deviceIndex = arg2;
 	            	deviceAvailableCheck = true;
 	            	find(arg1);
-	            	
+
 	            }
-	            
+
 
 	        });
       }
@@ -134,15 +135,9 @@ public class MainActivity extends Activity {
    }
    
    public void connect() {
-   	if(foundDevices.contains(selected)){
    	Intent intent = new Intent(this, DetailsActivity.class);
    	intent.putExtra("device_index", deviceIndex);
 	    startActivity(intent);
-   	}
-   	else {
-   		Toast.makeText(getApplicationContext(),"Can't connect to device!",
-            		 Toast.LENGTH_LONG).show();
-   	}
    }
    public void on(View view){
       if (!myBluetoothAdapter.isEnabled()) {

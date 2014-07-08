@@ -87,7 +87,7 @@ public class GPS_Activity extends Activity {
         };
         
         mapView = (MapView) this.findViewById(R.id.mapview);
-        mapView.setTileSource(TileSourceFactory.MAPNIK);
+        mapView.setTileSource(TileSourceFactory.MAPQUESTOSM);
         mapView.setBuiltInZoomControls(true);
         mapView.setMultiTouchControls(true);
         mapView.setClickable(false);

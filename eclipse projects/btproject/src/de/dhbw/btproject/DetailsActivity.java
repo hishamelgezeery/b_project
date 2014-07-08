@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.UUID;
-
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -48,6 +50,7 @@ public class DetailsActivity extends FragmentActivity {
 	private InputStream ins;
 	private OutputStream ons;
 	private ArrayList<BluetoothDevice> pairedDevices;
+	
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -87,8 +90,8 @@ public class DetailsActivity extends FragmentActivity {
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			Toast.makeText(getApplicationContext(),"Connection Lost",
-        		 Toast.LENGTH_LONG).show();
+//			Toast.makeText(getApplicationContext(),"Connection Lost",
+//        		 Toast.LENGTH_LONG).show();
 			Intent intent = new Intent(getBaseContext(), MainActivity.class);
 			startActivity(intent);
 		}
@@ -131,12 +134,41 @@ public class DetailsActivity extends FragmentActivity {
 		    device = null;
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+	  // Initiating Menu XML file (menu.xml)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+         
+        switch (item.getItemId())
+        {
+        case R.id.menu_disconnect:
+        	disconnect();
+        	Intent intent = new Intent(getBaseContext(), MainActivity.class);
+			startActivity(intent);
+            Toast.makeText(DetailsActivity.this, "Disconnected Successfully", Toast.LENGTH_SHORT).show();
+            return true;
+ 
+        case R.id.menu_preferences:
+            Toast.makeText(DetailsActivity.this, "Preferences is Selected", Toast.LENGTH_SHORT).show();
+            return true;
+ 
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }    
+    
+    /**
+     * Event Handling for Individual menu item selected
+     * Identify single menu item by it's id
+     * */
+
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
