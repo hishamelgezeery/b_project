@@ -38,6 +38,7 @@ public class GPS_Activity extends Activity {
 	private MapController mapController;
 	private LocationManager locManager;
 	private LocationListener listener;
+	Location currentLocation;
 	
 	private PathOverlay trackOverlay;
 	private MyLocationOverlay myLocation;
@@ -77,6 +78,7 @@ public class GPS_Activity extends Activity {
         	@Override
         	public void onLocationChanged(Location location) {
         		// Koordinaten umwandeln
+        		currentLocation = location;
         		int lat = (int)(location.getLatitude() * 1E6);
         		int lng = (int)(location.getLongitude() * 1E6);
         		
@@ -110,11 +112,17 @@ public class GPS_Activity extends Activity {
         final Button PositionButton = (Button) findViewById(R.id.Position);
         PositionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-    			if (setCenter == false)
-    			{
+    			
+    				try{
     				mapController.animateTo(myLocation.getMyLocation());
+    				}
+    				catch(Exception e){
+    					Location temp = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+    					if (temp!=null)
+    					mapController.animateTo(new GeoPoint(temp));
+    				}
     				setCenter = true;
-    			}
+    			
             }
         });
     
