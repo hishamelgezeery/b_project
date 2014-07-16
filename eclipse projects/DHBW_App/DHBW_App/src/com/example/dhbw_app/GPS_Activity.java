@@ -111,19 +111,17 @@ public class GPS_Activity extends Activity {
         
         final Button PositionButton = (Button) findViewById(R.id.Position);
         PositionButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-    			
-    				try{
-    				mapController.animateTo(myLocation.getMyLocation());
-    				}
-    				catch(Exception e){
-    					Location temp = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-    					if (temp!=null)
-    					mapController.animateTo(new GeoPoint(temp));
-    				}
-    				setCenter = true;
-    			
-            }
+        	 public void onClick(View v) {
+        		 GeoPoint position = myLocation.getMyLocation();
+     			if (position!=null)
+     			{
+     				mapController.animateTo(position);
+     				setCenter = true;
+     			}
+     			else{
+     				Toast.makeText(getApplicationContext(), "Location not yet known!" ,Toast.LENGTH_SHORT).show();
+     			}
+             }
         });
     
         final Button TrackButton = (Button) findViewById(R.id.Track);
