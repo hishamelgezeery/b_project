@@ -12,6 +12,7 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MyLocationOverlay;
 import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.PathOverlay;
+import org.osmdroid.views.overlay.ScaleBarOverlay;
 
 import com.example.gps.GpxReader;
 
@@ -42,6 +43,7 @@ public class GPS_Activity extends Activity {
 	
 	private PathOverlay trackOverlay;
 	private MyLocationOverlay myLocation;
+	private ScaleBarOverlay myScaleBarOverlay;
 	private List<Overlay> mapOverlays;
 	private List<Location> points = null;
 	//private ArrayList<GeoPoint> gpxPoints;
@@ -101,7 +103,14 @@ public class GPS_Activity extends Activity {
         mapController.setCenter(startPoint);
 
         mapOverlays = mapView.getOverlays();
-
+        
+        // Scalebar overlay
+        myScaleBarOverlay = new ScaleBarOverlay(this);
+        myScaleBarOverlay.setScaleBarOffset(380, 850);
+        myScaleBarOverlay.setLineWidth(5);
+        myScaleBarOverlay.setTextSize(18);
+        mapOverlays.add(myScaleBarOverlay);
+        
         myLocation = new MyLocationOverlay(this, mapView);
         mapOverlays.add(myLocation);
         myLocation.enableMyLocation();
@@ -127,15 +136,15 @@ public class GPS_Activity extends Activity {
         final Button TrackButton = (Button) findViewById(R.id.Track);
         TrackButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	String youFilePath = Environment.getExternalStorageDirectory().toString()+"/file.gpx";
-        		File gpxFile=new File(youFilePath);
-        		points = GpxReader.getPoints(gpxFile);
-        		for(int i=0;i<points.size();i++){
-        			Location point = points.get(i);
-        			trackOverlay.addPoint(new GeoPoint(point.getLatitude(),point.getLongitude()));
-        		}
-        		mapController.animateTo(new GeoPoint(points.get(0).getLatitude(),points.get(0).getLongitude()));
-        		mapView.getOverlays().add(trackOverlay);
+//            	String youFilePath = Environment.getExternalStorageDirectory().toString()+"/file.gpx";
+//        		File gpxFile=new File(youFilePath);
+//        		points = GpxReader.getPoints(gpxFile);
+//        		for(int i=0;i<points.size();i++){
+//        			Location point = points.get(i);
+//        			trackOverlay.addPoint(new GeoPoint(point.getLatitude(),point.getLongitude()));
+//        		}
+//        		mapController.animateTo(new GeoPoint(points.get(0).getLatitude(),points.get(0).getLongitude()));
+//        		mapView.getOverlays().add(trackOverlay);
             }
         });
         
