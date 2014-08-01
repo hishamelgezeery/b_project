@@ -8,6 +8,5 @@
 	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/b_project/eclipse projects/DHBW_App/DHBW_App/libs/slf4j-android-1.5.8.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/Desktop/xerces.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

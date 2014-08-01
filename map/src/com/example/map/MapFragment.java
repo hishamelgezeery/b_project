@@ -79,10 +79,9 @@ public  class MapFragment extends Fragment {
         setupLocation();
         mapOverlays = mapView.getOverlays();
         // Scalebar overlay
-        myScaleBarOverlay = new ScaleBarOverlay(getActivity());
-        myScaleBarOverlay.setScaleBarOffset(380, 850);
-        myScaleBarOverlay.setLineWidth(5);
-        myScaleBarOverlay.setTextSize(18);
+        myScaleBarOverlay = new ScaleBarOverlay(this.getActivity());
+		myScaleBarOverlay.setScaleBarOffset(500, 500);
+
         mapOverlays.add(myScaleBarOverlay);
         
         myLocation = new MyLocationOverlay(getActivity(), mapView);

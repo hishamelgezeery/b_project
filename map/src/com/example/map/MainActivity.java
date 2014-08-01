@@ -6,7 +6,7 @@ import java.util.Locale;
 import com.example.R;
 import com.example.bluetooth.BluetoothCommandService;
 import com.example.bluetooth.DeviceListActivity;
-import com.example.map.PlaceholderFragment.OnDataListener;
+import com.example.map.OverViewFragment.OnDataListener;
 
 
 import android.support.v7.app.ActionBarActivity;
@@ -67,7 +67,7 @@ public class MainActivity extends ActionBarActivity implements
 	    public static final int MESSAGE_TOAST = 5;
 	    
 	    //Fragments for use
-	    PlaceholderFragment mainFragment;
+	    OverViewFragment mainFragment;
 	    
 	    // Key names received from the BluetoothCommandService Handler
 	    public static final String DEVICE_NAME = "device_name";
@@ -309,14 +309,13 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
-			// Return a PlaceholderFragment (defined as a static inner class
-			// below).
-			if(position == 1){
-				return MapFragment.newInstance();
+			// Returns one of the three fragments depending on the position
+			switch (position){
+			case 0: return OverViewFragment.newInstance(); 
+			case 1: return MapFragment.newInstance();
+			case 2: return DataFragment.newInstance();
 			}
-			else{
-			return PlaceholderFragment.newInstance(position + 1);
-			}
+			return null;
 		}
 
 		@Override
@@ -347,7 +346,7 @@ public class MainActivity extends ActionBarActivity implements
 		
 	}
 	public void sendToFragment(String obj){
-		PlaceholderFragment mainFrag = (PlaceholderFragment)
+		OverViewFragment mainFrag = (OverViewFragment)
                 getSupportFragmentManager().getFragments().get(0);
 		mainFrag.updateData(obj);
 		}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/Documents/Processing/libraries/Unfolding/library/json4processing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/Documents/Processing/libraries/Unfolding/library/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/Documents/Processing/libraries/Unfolding/library/Unfolding.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Dhbw BSc/Documents/Processing/libraries/GLGraphics/library/GLGraphics.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/pde.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/ant.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/ant-launcher.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/com.ibm.icu_4.4.2.v20110823.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/jdi.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/jdimodel.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/jna.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/org.eclipse.osgi_3.8.1.v20120830-144521.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/processing-2.1.1/lib/org-netbeans-swing-outline.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
