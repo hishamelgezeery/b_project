@@ -96,12 +96,9 @@ public  class MapFragment extends Fragment {
 		myScaleBarOverlay.setImperial();
 		mapOverlays.add(myScaleBarOverlay);
         
-        
-        
-        myLocation = new MyLocationOverlay(getActivity(), mapView);
-        
+		myLocation = new MyLocationOverlay(getActivity(), mapView);
         mapOverlays.add(myLocation);
-        myLocation.setEnabled(true);
+        myLocation.enableMyLocation();
 
         trackOverlay = new PathOverlay(Color.BLUE, getActivity());
         Paint pPaint = trackOverlay.getPaint();
@@ -116,7 +113,7 @@ public  class MapFragment extends Fragment {
         final Button PositionButton = (Button) rootView.findViewById(R.id.Position);
         PositionButton.setOnClickListener(new View.OnClickListener() {
         	 public void onClick(View v) {
-        		GeoPoint position = myLocation.getMyLocation();
+        		 GeoPoint position = myLocation.getMyLocation();
       			if (position!=null)
       			{
       				mapController.animateTo(position);
