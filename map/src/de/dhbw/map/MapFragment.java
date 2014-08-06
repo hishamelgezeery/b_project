@@ -19,6 +19,7 @@ import org.osmdroid.views.overlay.SimpleLocationOverlay;
 import de.dhbw.R;
 
 import de.dhbw.gpx.GpxReader;
+import de.dhbw.map.OverViewFragment.OnDataListener;
 
 
 import android.annotation.SuppressLint;
@@ -52,6 +53,7 @@ public  class MapFragment extends Fragment {
 	private LocationManager locManager;
 	private LocationListener listener;
 	Location currentLocation;
+	OnPathSelectedListener mListener;
 	
 	
 	private PathOverlay trackOverlay;
@@ -67,6 +69,13 @@ public  class MapFragment extends Fragment {
 	public  MapFragment() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	/**
+	 * Interface to be implemented by parent activity for exchange of data
+	 */
+	public interface OnPathSelectedListener {
+        public void onPathSelectedRecieved(List <Location> points);
+    }
 	
 	public static MapFragment newInstance() {
 		MapFragment fragment = new MapFragment();
@@ -139,6 +148,16 @@ public  class MapFragment extends Fragment {
 		return rootView;
 	}
 	
+	@Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnPathSelectedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnPathSelectedListener");
+        }
+    }
+	
 	protected void drawTrack() {
 		if(trackDrawn){
 		mapView.getOverlays().remove(trackOverlay);
@@ -147,6 +166,7 @@ public  class MapFragment extends Fragment {
 		String youFilePath = Environment.getExternalStorageDirectory().toString()+"/file.gpx";
 		File gpxFile=new File(youFilePath);
 		points = GpxReader.getPoints(gpxFile);
+		mListener.onPathSelectedRecieved(points);
 		
 		for(int i=0;i<points.size();i++){
 			Location point = points.get(i);
