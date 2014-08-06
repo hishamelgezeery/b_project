@@ -1,12 +1,14 @@
 package de.dhbw.map;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Locale;
 
 import de.dhbw.R;
 
 import de.dhbw.bluetooth.BluetoothCommandService;
 import de.dhbw.bluetooth.DeviceListActivity;
+import de.dhbw.map.MapFragment.OnPathSelectedListener;
 import de.dhbw.map.OverViewFragment.OnDataListener;
 
 
@@ -20,6 +22,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,7 +38,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
-		ActionBar.TabListener, OnDataListener	 {
+		ActionBar.TabListener, OnDataListener, OnPathSelectedListener	 {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -315,14 +318,15 @@ public class MainActivity extends ActionBarActivity implements
 			case 0: return OverViewFragment.newInstance(); 
 			case 1: return MapFragment.newInstance();
 			case 2: return DataFragment.newInstance();
+			case 3: return NewDataFragment.newInstance();
 			}
 			return null;
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			// Show 4 total pages.
+			return 4;
 		}
 
 		@Override
@@ -335,6 +339,8 @@ public class MainActivity extends ActionBarActivity implements
 				return getString(R.string.title_section2).toUpperCase(l);
 			case 2:
 				return getString(R.string.title_section3).toUpperCase(l);
+			case 3: 
+				return getString(R.string.title_section4).toUpperCase(l);
 			}
 			return null;
 		}
@@ -351,5 +357,12 @@ public class MainActivity extends ActionBarActivity implements
                 getSupportFragmentManager().getFragments().get(0);
 		mainFrag.updateData(obj);
 		}
+
+	@Override
+	public void onPathSelectedRecieved(List<Location> points) {
+		DataFragment dataFrag = (DataFragment) getSupportFragmentManager().getFragments().get(2);
+		dataFrag.populateGraphView(points);
+		
+	}
 
 }
