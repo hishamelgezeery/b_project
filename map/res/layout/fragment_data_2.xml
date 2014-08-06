@@ -4,5 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+     <de.dhbw.ui.GaugeView
+       android:id="@+id/gauge_view1"
+       android:layout_width="200dp"
+       android:layout_height="200dp"/>
+
+   <de.dhbw.ui.GaugeView
+       android:id="@+id/gauge_view2"
+       android:layout_width="200dp"
+       android:layout_height="200dp"/>
 
 </LinearLayout>
