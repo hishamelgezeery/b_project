@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
      <de.dhbw.ui.GaugeView
        android:id="@+id/gauge_view1"
-       android:layout_width="100dp"
-       android:layout_height="200dp"/>
+       android:layout_width="110dp"
+       android:layout_height="110dp"
+       android:layout_alignParentLeft="true"
+       android:layout_marginTop="30dp"/>
 
    <de.dhbw.ui.GaugeView
        android:id="@+id/gauge_view2"
-       android:layout_width="100dp"
-       android:layout_height="200dp"/>
+       android:layout_width="110dp"
+       android:layout_height="110dp"
+       android:layout_toRightOf="@+id/gauge_view1"
+       android:layout_marginLeft="20dp"
+       android:layout_marginTop="30dp"/>
    
    <ProgressBar
   android:id="@+id/vertical_progressbar"
-  android:layout_width="12dp"
-  android:layout_height="300dp"
+  android:layout_width="35dp"
+  android:layout_height="150dp"
   style="@style/Widget.ProgressBar.Vertical"
+  android:layout_toRightOf="@+id/gauge_view2"
+  android:layout_marginLeft="20dp"
+  android:layout_marginTop="10dp"
+/>
+   <ProgressBar
+  android:id="@+id/vertical_progressbar2"
+  android:layout_width="35dp"
+  android:layout_height="150dp"
+  style="@style/Widget.ProgressBar.Vertical"
+  android:layout_toRightOf="@+id/vertical_progressbar"
+  android:layout_marginLeft="20dp"
+  android:layout_marginTop="10dp"
 />
 
-</LinearLayout>
+</RelativeLayout>
