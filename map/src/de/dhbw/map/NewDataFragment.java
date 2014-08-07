@@ -2,6 +2,8 @@ package de.dhbw.map;
 
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
@@ -18,6 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import de.dhbw.R;
 
 
@@ -25,8 +29,10 @@ public class NewDataFragment extends Fragment {
 	
 	private GaugeView mGaugeView1;
 	private GaugeView mGaugeView2;
-	int count = 0;
+	private ProgressBar p1;
+	int counter = 0;
 	private final Random RAND = new Random();
+	TextView t2;
 	/**
 	 * Returns a new instance of this fragment for the given section number.
 	 */
@@ -42,6 +48,8 @@ public class NewDataFragment extends Fragment {
 				false);
 		mGaugeView1 = (GaugeView) rootView.findViewById(R.id.gauge_view1);
 		mGaugeView2 = (GaugeView) rootView.findViewById(R.id.gauge_view2);
+		t2 = (TextView) rootView.findViewById(R.id.textView2);
+		p1 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar);
 		mTimer.start();
 		// init example series data
 		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
@@ -105,5 +113,19 @@ public class NewDataFragment extends Fragment {
 		@Override
 		public void onFinish() {}
 	};
+	public void updateData(String obj) {
+		// TODO Auto-generated method stub
+		Matcher matcher = Pattern.compile("\\d+").matcher(obj);
+	      matcher.find();
+	      try {
+	        int i = Integer.valueOf(matcher.group());
+	        if ( i > counter)
+	          counter = i;
+	        else
+	          counter++;
+	      }
+	      catch (Exception e) {
+	      }
+	}
 	
 }

@@ -72,6 +72,7 @@ public class MainActivity extends ActionBarActivity implements
 	    
 	    //Fragments for use
 	    OverViewFragment mainFragment;
+	    TextView mv;
 	    
 	    // Key names received from the BluetoothCommandService Handler
 	    public static final String DEVICE_NAME = "device_name";
@@ -221,9 +222,14 @@ public class MainActivity extends ActionBarActivity implements
                                Toast.LENGTH_SHORT).show();
                 break;
             case MESSAGE_READ:
-            	String obj =  (String) msg.obj;
+            	String obj="oops";
+				try {
+					obj = (String) new String((byte [])msg.obj, "UTF-8");
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				};
 				sendToFragment(obj);
-                break;
             }
         }
     };
@@ -353,8 +359,8 @@ public class MainActivity extends ActionBarActivity implements
 		
 	}
 	public void sendToFragment(String obj){
-		OverViewFragment mainFrag = (OverViewFragment)
-                getSupportFragmentManager().getFragments().get(0);
+		NewDataFragment mainFrag = (NewDataFragment)
+                getSupportFragmentManager().getFragments().get(3);
 		mainFrag.updateData(obj);
 		}
 

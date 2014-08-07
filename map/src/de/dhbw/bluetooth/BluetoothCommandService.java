@@ -328,13 +328,11 @@ public class BluetoothCommandService {
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
-                	// Read from the InputStream
-                	
-                	if(mmInStream.available()>0)
-                	temp = sc.nextLine();
+                	 // Read from the InputStream
+                    int bytes = mmInStream.read(buffer);
 
                     // Send the obtained bytes to the UI Activity
-                    mHandler.obtainMessage(MainActivity.MESSAGE_READ, -1, -1, temp).sendToTarget();
+                    mHandler.obtainMessage(MainActivity.MESSAGE_READ, bytes, -1, buffer).sendToTarget();
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
