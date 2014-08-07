@@ -9,7 +9,7 @@
        android:layout_width="120dp"
        android:layout_height="120dp"
        android:layout_alignParentLeft="true"
-       android:layout_marginTop="20dp"
+       android:layout_marginTop="10dp"
        android:layout_marginLeft="20dp"/>
 
    <de.dhbw.ui.GaugeView
@@ -27,7 +27,7 @@
   style="@style/Widget.ProgressBar.Vertical"
   android:layout_toRightOf="@+id/gauge_view2"
   android:layout_marginLeft="40dp"
-  android:layout_marginTop="20dp"
+  android:layout_marginTop="10dp"
 />
    <ProgressBar
   android:id="@+id/vertical_progressbar2"
@@ -36,7 +36,7 @@
   style="@style/Widget.ProgressBar.Vertical"
   android:layout_toRightOf="@+id/vertical_progressbar"
   android:layout_marginLeft="20dp"
-  android:layout_marginTop="20dp"
+  android:layout_marginTop="10dp"
 />
    <LinearLayout
        android:id="@+id/graphLayout"

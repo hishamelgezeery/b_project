@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
      <de.dhbw.ui.GaugeView
        android:id="@+id/gauge_view1"
-       android:layout_width="400dp"
-       android:layout_height="400dp"/>
+       android:layout_width="200dp"
+       android:layout_height="200dp"
+       android:layout_alignParentLeft="true"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="20dp"/>
 
    <de.dhbw.ui.GaugeView
        android:id="@+id/gauge_view2"
-       android:layout_width="400dp"
-       android:layout_height="400dp"/>
+       android:layout_width="200dp"
+       android:layout_height="200dp"
+       android:layout_below="@+id/gauge_view1"
+       android:layout_marginTop="20dp"
+       android:layout_marginLeft="20dp"/>
    
    <ProgressBar
   android:id="@+id/vertical_progressbar"
-  android:layout_width="58dp"
-  android:layout_height="600dp"
+  android:layout_width="90dp"
+  android:layout_height="400dp"
   style="@style/Widget.ProgressBar.Vertical"
+  android:layout_toRightOf="@+id/gauge_view2"
+  android:layout_marginLeft="40dp"
+  android:layout_marginTop="30dp"
 />
+   <ProgressBar
+  android:id="@+id/vertical_progressbar2"
+  android:layout_width="90dp"
+  android:layout_height="400dp"
+  style="@style/Widget.ProgressBar.Vertical"
+  android:layout_toRightOf="@+id/vertical_progressbar"
+  android:layout_marginLeft="60dp"
+  android:layout_marginTop="30dp"
+/>
+   <LinearLayout
+       android:id="@+id/graphLayout"
+       android:layout_width="fill_parent"
+       android:layout_height="200dp"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginLeft="40dp"
+       android:layout_below="@+id/gauge_view2"
+       android:orientation="vertical" >
+   </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

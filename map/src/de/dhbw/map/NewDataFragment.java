@@ -10,6 +10,7 @@ import com.jjoe64.graphview.GraphView.GraphViewData;
 
 import de.dhbw.ui.GaugeView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,7 @@ public class NewDataFragment extends Fragment {
 	
 	private GaugeView mGaugeView1;
 	private GaugeView mGaugeView2;
+	int count = 0;
 	private final Random RAND = new Random();
 	/**
 	 * Returns a new instance of this fragment for the given section number.
@@ -45,8 +47,12 @@ public class NewDataFragment extends Fragment {
 		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
 		          new GraphViewData(1, 2.0d)
 		          , new GraphViewData(2, 1.5d)
-		          , new GraphViewData(3, 2.5d)
+		          , new GraphViewData(3, 3.5d)
+		          , new GraphViewData(4, 4.0d)
+		          , new GraphViewData(4, 0.0d)
 		          , new GraphViewData(4, 1.0d)
+		          , new GraphViewData(4, 2.0d),
+		          new GraphViewData(4, 6.0d)
 		});
 
 		GraphView graphView = new LineGraphView(
@@ -66,13 +72,26 @@ public class NewDataFragment extends Fragment {
 			      , "GraphViewDemo" // heading
 		);
 		graphView3.addSeries(exampleSeries); // data
-
 		LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.graphLayout);
-		layout.addView(graphView,800,250);
-		layout.addView(graphView2,800,250);
-		layout.addView(graphView3,800,250);
+		if ((getResources().getConfiguration().screenLayout & 
+			    Configuration.SCREENLAYOUT_SIZE_MASK) == 
+			        Configuration.SCREENLAYOUT_SIZE_LARGE) {
+			layout.addView(graphView,500,150);
+			layout.addView(graphView2,500,150);
+			layout.addView(graphView3,500,150);
+
+			}
+		else {
+			layout.addView(graphView,800,250);
+			layout.addView(graphView2,800,250);
+			layout.addView(graphView3,800,250);
+		}
+		 //int orientation = getResources().getConfiguration().orientation;
+		
+		
 		return rootView;
 	}
+	
 	
 	private final CountDownTimer mTimer = new CountDownTimer(30000, 1000) {
 
@@ -80,6 +99,7 @@ public class NewDataFragment extends Fragment {
 		public void onTick(final long millisUntilFinished) {
 			mGaugeView1.setTargetValue(RAND.nextInt(101));
 			mGaugeView2.setTargetValue(RAND.nextInt(101));
+			
 		}
 
 		@Override
