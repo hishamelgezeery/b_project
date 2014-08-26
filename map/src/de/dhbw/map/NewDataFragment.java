@@ -48,7 +48,7 @@ public class NewDataFragment extends Fragment {
 				false);
 		mGaugeView1 = (GaugeView) rootView.findViewById(R.id.gauge_view1);
 		mGaugeView2 = (GaugeView) rootView.findViewById(R.id.gauge_view2);
-		t2 = (TextView) rootView.findViewById(R.id.textView2);
+		///21spt2 = (TextView) rootView.findViewById(R.id.textView2);
 		p1 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar);
 		mTimer.start();
 		// init example series data
@@ -126,6 +126,7 @@ public class NewDataFragment extends Fragment {
 	      }
 	      catch (Exception e) {
 	      }
+	      p1.setProgress((counter%1000)/10);
 	}
 	
 }

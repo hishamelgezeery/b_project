@@ -16,6 +16,10 @@ public final class R {
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
     }
+    public static final class array {
+        public static final int rangeColors=0x7f0c0001;
+        public static final int ranges=0x7f0c0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -292,6 +296,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int dividerVertical=0x7f01001a;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int divisions=0x7f010081;
         /**  ListPopupWindow comaptibility 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -367,6 +379,22 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int initialActivityCount=0x7f01006a;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int innerRimBorderWidth=0x7f01007a;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int innerRimWidth=0x7f010079;
         /**  Specifies whether the theme is light, otherwise it is dark. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -470,6 +498,46 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int navigationMode=0x7f010027;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int needleHeight=0x7f01007c;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int needleWidth=0x7f01007b;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int outerBorderWidth=0x7f010077;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int outerRimWidth=0x7f010078;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int outerShadowWidth=0x7f010076;
         /**  Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -550,6 +618,46 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int queryHint=0x7f01005b;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int rangeColors=0x7f010084;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int rangeValues=0x7f010083;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scaleEndValue=0x7f01007f;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scalePosition=0x7f01007d;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scaleStartAngle=0x7f010080;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scaleStartValue=0x7f01007e;
         /**  SearchView dropdown background 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -656,6 +764,70 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int showDividers=0x7f010055;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showInnerRim=0x7f010071;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showNeedle=0x7f010072;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showOuterBorder=0x7f01006f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showOuterRim=0x7f010070;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showOuterShadow=0x7f01006e;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showRanges=0x7f010074;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showScale=0x7f010073;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showText=0x7f010075;
         /**  Default Spinner style. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -679,6 +851,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int spinnerStyle=0x7f010057;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int subdivisions=0x7f010082;
         /**  Specifies subtitle text used for navigationMode="normal" 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -736,6 +916,59 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int textColorSearchUrl=0x7f010068;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textShadowColor=0x7f01008b;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int textUnit=0x7f010088;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textUnitColor=0x7f010089;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textUnitSize=0x7f01008a;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int textValue=0x7f010085;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textValueColor=0x7f010086;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textValueSize=0x7f010087;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1077,11 +1310,18 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int background=0x7f020057;
+        public static final int brushed_alu=0x7f020058;
+        public static final int brushed_alu2=0x7f020059;
+        public static final int carbon_fibre=0x7f02005a;
+        public static final int dhbwlogo=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
+        public static final int light_alu=0x7f02005d;
+        public static final int vertical_progress_bar=0x7f02005e;
     }
     public static final class id {
-        public static final int Position=0x7f050046;
-        public static final int Track=0x7f050047;
+        public static final int Position=0x7f050050;
+        public static final int Track=0x7f050051;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1093,7 +1333,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050048;
+        public static final int action_settings=0x7f050052;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1101,22 +1341,30 @@ containing a value of this type.
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
+        public static final int deviceStatus=0x7f05004b;
+        public static final int dhbwlogo_image=0x7f05004a;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
-        public static final int discoverable=0x7f05004a;
+        public static final int discoverable=0x7f050054;
         public static final int dropdown=0x7f05000f;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
+        public static final int gauge_view1=0x7f050043;
+        public static final int gauge_view2=0x7f050044;
+        public static final int graph1=0x7f050042;
+        public static final int graphLayout=0x7f050047;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int linearLayout1=0x7f050049;
+        public static final int linearLayout2=0x7f050048;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
-        public static final int mapview=0x7f050045;
+        public static final int mapview=0x7f05004f;
         public static final int middle=0x7f050012;
         public static final int never=0x7f050009;
         public static final int new_devices=0x7f050040;
@@ -1127,7 +1375,8 @@ containing a value of this type.
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
-        public static final int scan=0x7f050049;
+        public static final int scan=0x7f050053;
+        public static final int search=0x7f05004c;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1138,7 +1387,7 @@ containing a value of this type.
         public static final int search_plate=0x7f050036;
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
-        public static final int section_label=0x7f050043;
+        public static final int section_label=0x7f05004e;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
@@ -1146,14 +1395,15 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView1=0x7f050044;
-        public static final int textView2=0x7f050042;
+        public static final int textView1=0x7f05004d;
         public static final int title=0x7f05002b;
         public static final int title_new_devices=0x7f05003f;
         public static final int title_paired_devices=0x7f05003d;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
+        public static final int vertical_progressbar=0x7f050045;
+        public static final int vertical_progressbar2=0x7f050046;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1210,15 +1460,17 @@ containing a value of this type.
         public static final int device_list=0x7f030019;
         public static final int device_name=0x7f03001a;
         public static final int fragment_data=0x7f03001b;
-        public static final int fragment_main=0x7f03001c;
-        public static final int fragment_map=0x7f03001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int fragment_data_2=0x7f03001c;
+        public static final int fragment_main=0x7f03001d;
+        public static final int fragment_map=0x7f03001e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
-        public static final int option_menu=0x7f0c0001;
+        public static final int main=0x7f0d0000;
+        public static final int option_menu=0x7f0d0001;
     }
     public static final class string {
+        public static final int Text=0x7f0a001c;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1259,26 +1511,28 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a0012;
+        public static final int action_settings=0x7f0a0013;
         public static final int app_name=0x7f0a000d;
-        public static final int bt_not_enabled_leaving=0x7f0a0014;
-        public static final int btn_find=0x7f0a0013;
+        public static final int bt_not_enabled_leaving=0x7f0a001d;
+        public static final int btn_find=0x7f0a0014;
         public static final int button_scan=0x7f0a0017;
-        public static final int connect=0x7f0a001c;
-        public static final int discoverable=0x7f0a001d;
-        public static final int hello_world=0x7f0a0011;
+        public static final int connect=0x7f0a001e;
+        public static final int disconnect=0x7f0a001f;
+        public static final int discoverable=0x7f0a0020;
+        public static final int hello_world=0x7f0a0012;
         public static final int none_found=0x7f0a001a;
         public static final int none_paired=0x7f0a0018;
         public static final int scanning=0x7f0a0019;
         public static final int select_device=0x7f0a001b;
-        public static final int title_connected_to=0x7f0a001e;
-        public static final int title_connecting=0x7f0a001f;
-        public static final int title_not_connected=0x7f0a0020;
+        public static final int title_connected_to=0x7f0a0021;
+        public static final int title_connecting=0x7f0a0022;
+        public static final int title_not_connected=0x7f0a0023;
         public static final int title_other_devices=0x7f0a0016;
         public static final int title_paired_devices=0x7f0a0015;
         public static final int title_section1=0x7f0a000e;
         public static final int title_section2=0x7f0a000f;
         public static final int title_section3=0x7f0a0010;
+        public static final int title_section4=0x7f0a0011;
     }
     public static final class style {
         /** 
@@ -1415,6 +1669,7 @@ containing a value of this type.
         /**  Base platform-dependent theme providing a light-themed activity. 
          */
         public static final int Theme_Base_Light=0x7f0b007f;
+        public static final int Widget=0x7f0b008d;
         /**  Styles in here can be extended for customisation in your application. Each utilises
          one of the Base styles. If Holo themes are available on the current platform version
          they will be used instead of the compat styles. 
@@ -1509,6 +1764,8 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0b000a;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0b0009;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b0022;
+        public static final int Widget_ProgressBar=0x7f0b008e;
+        public static final int Widget_ProgressBar_Vertical=0x7f0b008f;
     }
     public static final class styleable {
         /**  ============================================ 
@@ -2224,6 +2481,493 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name de.dhbw:textAllCaps
         */
         public static final int CompatTextView_textAllCaps = 0;
+        /** Attributes that can be used with a GaugeView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #GaugeView_divisions de.dhbw:divisions}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_innerRimBorderWidth de.dhbw:innerRimBorderWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_innerRimWidth de.dhbw:innerRimWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_needleHeight de.dhbw:needleHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_needleWidth de.dhbw:needleWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_outerBorderWidth de.dhbw:outerBorderWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_outerRimWidth de.dhbw:outerRimWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_outerShadowWidth de.dhbw:outerShadowWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_rangeColors de.dhbw:rangeColors}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_rangeValues de.dhbw:rangeValues}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_scaleEndValue de.dhbw:scaleEndValue}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_scalePosition de.dhbw:scalePosition}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_scaleStartAngle de.dhbw:scaleStartAngle}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_scaleStartValue de.dhbw:scaleStartValue}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showInnerRim de.dhbw:showInnerRim}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showNeedle de.dhbw:showNeedle}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showOuterBorder de.dhbw:showOuterBorder}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showOuterRim de.dhbw:showOuterRim}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showOuterShadow de.dhbw:showOuterShadow}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showRanges de.dhbw:showRanges}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showScale de.dhbw:showScale}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_showText de.dhbw:showText}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_subdivisions de.dhbw:subdivisions}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textShadowColor de.dhbw:textShadowColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textUnit de.dhbw:textUnit}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textUnitColor de.dhbw:textUnitColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textUnitSize de.dhbw:textUnitSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textValue de.dhbw:textValue}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textValueColor de.dhbw:textValueColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #GaugeView_textValueSize de.dhbw:textValueSize}</code></td><td></td></tr>
+           </table>
+           @see #GaugeView_divisions
+           @see #GaugeView_innerRimBorderWidth
+           @see #GaugeView_innerRimWidth
+           @see #GaugeView_needleHeight
+           @see #GaugeView_needleWidth
+           @see #GaugeView_outerBorderWidth
+           @see #GaugeView_outerRimWidth
+           @see #GaugeView_outerShadowWidth
+           @see #GaugeView_rangeColors
+           @see #GaugeView_rangeValues
+           @see #GaugeView_scaleEndValue
+           @see #GaugeView_scalePosition
+           @see #GaugeView_scaleStartAngle
+           @see #GaugeView_scaleStartValue
+           @see #GaugeView_showInnerRim
+           @see #GaugeView_showNeedle
+           @see #GaugeView_showOuterBorder
+           @see #GaugeView_showOuterRim
+           @see #GaugeView_showOuterShadow
+           @see #GaugeView_showRanges
+           @see #GaugeView_showScale
+           @see #GaugeView_showText
+           @see #GaugeView_subdivisions
+           @see #GaugeView_textShadowColor
+           @see #GaugeView_textUnit
+           @see #GaugeView_textUnitColor
+           @see #GaugeView_textUnitSize
+           @see #GaugeView_textValue
+           @see #GaugeView_textValueColor
+           @see #GaugeView_textValueSize
+         */
+        public static final int[] GaugeView = {
+            0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071,
+            0x7f010072, 0x7f010073, 0x7f010074, 0x7f010075,
+            0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079,
+            0x7f01007a, 0x7f01007b, 0x7f01007c, 0x7f01007d,
+            0x7f01007e, 0x7f01007f, 0x7f010080, 0x7f010081,
+            0x7f010082, 0x7f010083, 0x7f010084, 0x7f010085,
+            0x7f010086, 0x7f010087, 0x7f010088, 0x7f010089,
+            0x7f01008a, 0x7f01008b
+        };
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#divisions}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:divisions
+        */
+        public static final int GaugeView_divisions = 19;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#innerRimBorderWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:innerRimBorderWidth
+        */
+        public static final int GaugeView_innerRimBorderWidth = 12;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#innerRimWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:innerRimWidth
+        */
+        public static final int GaugeView_innerRimWidth = 11;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#needleHeight}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:needleHeight
+        */
+        public static final int GaugeView_needleHeight = 14;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#needleWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:needleWidth
+        */
+        public static final int GaugeView_needleWidth = 13;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#outerBorderWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:outerBorderWidth
+        */
+        public static final int GaugeView_outerBorderWidth = 9;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#outerRimWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:outerRimWidth
+        */
+        public static final int GaugeView_outerRimWidth = 10;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#outerShadowWidth}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:outerShadowWidth
+        */
+        public static final int GaugeView_outerShadowWidth = 8;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#rangeColors}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name de.dhbw:rangeColors
+        */
+        public static final int GaugeView_rangeColors = 22;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#rangeValues}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name de.dhbw:rangeValues
+        */
+        public static final int GaugeView_rangeValues = 21;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#scaleEndValue}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:scaleEndValue
+        */
+        public static final int GaugeView_scaleEndValue = 17;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#scalePosition}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:scalePosition
+        */
+        public static final int GaugeView_scalePosition = 15;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#scaleStartAngle}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:scaleStartAngle
+        */
+        public static final int GaugeView_scaleStartAngle = 18;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#scaleStartValue}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:scaleStartValue
+        */
+        public static final int GaugeView_scaleStartValue = 16;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showInnerRim}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showInnerRim
+        */
+        public static final int GaugeView_showInnerRim = 3;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showNeedle}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showNeedle
+        */
+        public static final int GaugeView_showNeedle = 4;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showOuterBorder}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showOuterBorder
+        */
+        public static final int GaugeView_showOuterBorder = 1;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showOuterRim}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showOuterRim
+        */
+        public static final int GaugeView_showOuterRim = 2;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showOuterShadow}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showOuterShadow
+        */
+        public static final int GaugeView_showOuterShadow = 0;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showRanges}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showRanges
+        */
+        public static final int GaugeView_showRanges = 6;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showScale}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showScale
+        */
+        public static final int GaugeView_showScale = 5;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#showText}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:showText
+        */
+        public static final int GaugeView_showText = 7;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#subdivisions}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:subdivisions
+        */
+        public static final int GaugeView_subdivisions = 20;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textShadowColor}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:textShadowColor
+        */
+        public static final int GaugeView_textShadowColor = 29;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textUnit}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name de.dhbw:textUnit
+        */
+        public static final int GaugeView_textUnit = 26;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textUnitColor}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:textUnitColor
+        */
+        public static final int GaugeView_textUnitColor = 27;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textUnitSize}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:textUnitSize
+        */
+        public static final int GaugeView_textUnitSize = 28;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textValue}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name de.dhbw:textValue
+        */
+        public static final int GaugeView_textValue = 23;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textValueColor}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:textValueColor
+        */
+        public static final int GaugeView_textValueColor = 24;
+        /**
+          <p>This symbol is the offset where the {@link de.dhbw.R.attr#textValueSize}
+          attribute's value can be found in the {@link #GaugeView} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.dhbw:textValueSize
+        */
+        public static final int GaugeView_textValueSize = 25;
         /** Attributes that can be used with a LinearLayoutICS.
            <p>Includes the following attributes:</p>
            <table>

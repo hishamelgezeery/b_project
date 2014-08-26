@@ -19,7 +19,6 @@ import org.osmdroid.views.overlay.SimpleLocationOverlay;
 import de.dhbw.R;
 
 import de.dhbw.gpx.GpxReader;
-import de.dhbw.map.OverViewFragment.OnDataListener;
 
 
 import android.annotation.SuppressLint;

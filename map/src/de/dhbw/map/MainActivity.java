@@ -9,7 +9,7 @@ import de.dhbw.R;
 import de.dhbw.bluetooth.BluetoothCommandService;
 import de.dhbw.bluetooth.DeviceListActivity;
 import de.dhbw.map.MapFragment.OnPathSelectedListener;
-import de.dhbw.map.OverViewFragment.OnDataListener;
+import de.dhbw.map.OverViewFragment.OverViewFragmentListener;
 
 
 import android.support.v7.app.ActionBarActivity;
@@ -34,11 +34,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
-		ActionBar.TabListener, OnDataListener, OnPathSelectedListener	 {
+		ActionBar.TabListener, OverViewFragmentListener, OnPathSelectedListener	 {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -85,6 +86,10 @@ public class MainActivity extends ActionBarActivity implements
 	    private BluetoothAdapter mBluetoothAdapter = null;
 	    // Member object for Bluetooth Command Service
 	    private BluetoothCommandService mCommandService = null;
+	    private boolean deviceConnected;
+	    
+	    private Button connectButton;
+	    private Menu menu;
 
 
 	@Override
@@ -216,6 +221,8 @@ public class MainActivity extends ActionBarActivity implements
                 mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
                 Toast.makeText(getApplicationContext(), "Connected to "
                                + mConnectedDeviceName, Toast.LENGTH_SHORT).show();
+                deviceConnected = true;
+                changeValuesConnected();
                 break;
             case MESSAGE_TOAST:
                 Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST),
@@ -261,10 +268,34 @@ public class MainActivity extends ActionBarActivity implements
         }
     }
 
+	protected void changeValuesConnected() {
+		connectButton = (Button) findViewById(R.id.search);
+		connectButton.setText(R.string.disconnect);
+		
+		MenuItem connectMenuItem = menu.findItem(R.id.scan); 
+		connectMenuItem.setTitle(R.string.disconnect);
+		
+		TextView deviceStatus = (TextView) findViewById(R.id.deviceStatus);
+		deviceStatus.setText("Status: Connected to "+mConnectedDeviceName);
+		
+	}
+	protected void changeValuesDisconnected() {
+		connectButton = (Button) findViewById(R.id.search);
+		connectButton.setText(R.string.connect);
+		
+		MenuItem connectMenuItem = menu.findItem(R.id.scan); 
+		connectMenuItem.setTitle(R.string.connect);
+		
+		TextView deviceStatus = (TextView) findViewById(R.id.deviceStatus);
+		deviceStatus.setText(R.string.Text);
+		
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.option_menu, menu);
+		this.menu = menu;
 		return true;
 	}
 
@@ -272,9 +303,17 @@ public class MainActivity extends ActionBarActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
         case R.id.scan:
+        	if(!deviceConnected){
             // Launch the DeviceListActivity to see devices and do scan
         	Intent serverIntent = new Intent(this, DeviceListActivity.class);
             startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+        	}
+        	else{
+        		mCommandService.stop();
+        		mCommandService.start();
+        		changeValuesDisconnected();
+        		deviceConnected = false;
+        	}
             return true;
         case R.id.discoverable:
             // Ensure this device is discoverable by others
@@ -351,13 +390,6 @@ public class MainActivity extends ActionBarActivity implements
 			return null;
 		}
 	}
-
-	@Override
-	public void onDataRecieved() {
-		
-	
-		
-	}
 	public void sendToFragment(String obj){
 		NewDataFragment mainFrag = (NewDataFragment)
                 getSupportFragmentManager().getFragments().get(3);
@@ -368,6 +400,22 @@ public class MainActivity extends ActionBarActivity implements
 	public void onPathSelectedRecieved(List<Location> points) {
 		DataFragment dataFrag = (DataFragment) getSupportFragmentManager().getFragments().get(2);
 		dataFrag.populateGraphView(points);
+		
+	}
+
+	@Override
+	public void onConnectionRequest() {
+		if(!deviceConnected){
+		Intent serverIntent = new Intent(this, DeviceListActivity.class);
+        startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+		}
+		else{
+			mCommandService.stop();
+    		mCommandService.start();
+    		changeValuesDisconnected();
+    		deviceConnected = false;
+			
+		}
 		
 	}
 
