@@ -26,5 +26,12 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="de.dhbw.R.string"/>
 <fullyQualifiedTypeName name="de.dhbw.ui.GaugeView"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="org.codeandmagic.android.gauge.GaugeView"/>
+<fullyQualifiedTypeName name="de.dhbw.R.id"/>
+<fullyQualifiedTypeName name="org.codeandmagic.android.gauge.R.styleable"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
 <fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="android.text.format.DateUtils"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

@@ -37,6 +37,7 @@ public  class OverViewFragment extends Fragment {
 	 */
 	public interface OverViewFragmentListener {
         public void onConnectionRequest();
+        public void OverviewFragmentUpdate();
     }
 	public void setTextView(String obj) {
 		// TODO Auto-generated method stub
@@ -72,6 +73,20 @@ public  class OverViewFragment extends Fragment {
             }
        });
 		return rootView;
+	}
+	
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		mCallback.OverviewFragmentUpdate();
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		mCallback.OverviewFragmentUpdate();
 	}
 
 	public void updateData(String obj) {

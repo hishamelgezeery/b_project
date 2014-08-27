@@ -8,12 +8,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.map.MainActivity$OverviewFragment" >
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal" >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/dhbwlogo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/dhbwlogo" />
+
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/deviceStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/section_label"
-        android:layout_marginTop="95dp"
-        android:text="TextView" />
+        android:layout_alignLeft="@+id/dhbwlogo_image"
+        android:layout_below="@+id/dhbwlogo_image"
+        android:layout_marginTop="23dp"
+        android:text="@string/Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/deviceStatus"
+        android:layout_below="@+id/deviceStatus"
+        android:layout_marginTop="19dp"
+        android:text="@string/connect" />
 
 </RelativeLayout>

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ public class NewDataFragment extends Fragment {
 	private GaugeView mGaugeView1;
 	private GaugeView mGaugeView2;
 	private ProgressBar p1;
+	private ProgressBar p2;
+	private ProgressBar p3;
 	int counter = 0;
 	private String [] data;
 	private final Random RAND = new Random();
@@ -60,6 +63,8 @@ public class NewDataFragment extends Fragment {
 		TextView timeTextView = (TextView) rootView.findViewById(R.id.textView12);
 		timeTextView.setText(DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_12HOUR));
 		p1 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar);
+		p2 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar2);
+		p3 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar3);
 		mTimer.start();
 		// init example series data
 		GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
@@ -115,7 +120,6 @@ public class NewDataFragment extends Fragment {
 
 		@Override
 		public void onTick(final long millisUntilFinished) {
-			mGaugeView1.setTargetValue(RAND.nextInt(401));
 			mGaugeView2.setTargetValue(RAND.nextInt(41));
 			
 		}
@@ -125,6 +129,12 @@ public class NewDataFragment extends Fragment {
 	};
 	public void updateData(String obj) {
 		data = obj.split(";");
+		Log.e("Data", obj);
+		//counter = Integer.parseInt(data[0]);
+//		p1.setProgress(counter);
+//		p2.setProgress(counter);
+//		p3.setProgress(counter);
+//		mGaugeView1.setTargetValue(counter);
 	}
 	
 }

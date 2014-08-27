@@ -87,9 +87,7 @@ public class MainActivity extends ActionBarActivity implements
 	    // Member object for Bluetooth Command Service
 	    private BluetoothCommandService mCommandService = null;
 	    private boolean deviceConnected;
-	    
 	    private Button connectButton;
-	    private Menu menu;
 
 
 	@Override
@@ -271,10 +269,7 @@ public class MainActivity extends ActionBarActivity implements
 	protected void changeValuesConnected() {
 		connectButton = (Button) findViewById(R.id.search);
 		connectButton.setText(R.string.disconnect);
-		
-		MenuItem connectMenuItem = menu.findItem(R.id.scan); 
-		connectMenuItem.setTitle(R.string.disconnect);
-		
+				
 		TextView deviceStatus = (TextView) findViewById(R.id.deviceStatus);
 		deviceStatus.setText("Status: Connected to "+mConnectedDeviceName);
 		
@@ -282,10 +277,7 @@ public class MainActivity extends ActionBarActivity implements
 	protected void changeValuesDisconnected() {
 		connectButton = (Button) findViewById(R.id.search);
 		connectButton.setText(R.string.connect);
-		
-		MenuItem connectMenuItem = menu.findItem(R.id.scan); 
-		connectMenuItem.setTitle(R.string.connect);
-		
+				
 		TextView deviceStatus = (TextView) findViewById(R.id.deviceStatus);
 		deviceStatus.setText(R.string.Text);
 		
@@ -295,26 +287,13 @@ public class MainActivity extends ActionBarActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.option_menu, menu);
-		this.menu = menu;
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-        case R.id.scan:
-        	if(!deviceConnected){
-            // Launch the DeviceListActivity to see devices and do scan
-        	Intent serverIntent = new Intent(this, DeviceListActivity.class);
-            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-        	}
-        	else{
-        		mCommandService.stop();
-        		mCommandService.start();
-        		changeValuesDisconnected();
-        		deviceConnected = false;
-        	}
-            return true;
+        
         case R.id.discoverable:
             // Ensure this device is discoverable by others
             ensureDiscoverable();
@@ -358,20 +337,21 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
-			// Returns one of the three fragments depending on the position
+			// Returns one of the five fragments depending on the position
 			switch (position){
 			case 0: return OverViewFragment.newInstance(); 
 			case 1: return MapFragment.newInstance();
 			case 2: return DataFragment.newInstance();
 			case 3: return NewDataFragment.newInstance();
+			case 4: return GraphDataFragment.newInstance();
 			}
 			return null;
 		}
 
 		@Override
 		public int getCount() {
-			// Show 4 total pages.
-			return 4;
+			// Show 5 total pages.
+			return 5;
 		}
 
 		@Override
@@ -386,19 +366,58 @@ public class MainActivity extends ActionBarActivity implements
 				return getString(R.string.title_section3).toUpperCase(l);
 			case 3: 
 				return getString(R.string.title_section4).toUpperCase(l);
+			case 4:
+				return getString(R.string.title_section5).toUpperCase(l);
 			}
 			return null;
 		}
 	}
 	public void sendToFragment(String obj){
-		NewDataFragment mainFrag = (NewDataFragment)
-                getSupportFragmentManager().getFragments().get(3);
-		mainFrag.updateData(obj);
+		//checks to see if the graphDataFragment and NewDataFragment are loaded,
+		//and if so sends the data received from Bluetooth
+		NewDataFragment newDataFrag = NewDataFragment.newInstance();
+		GraphDataFragment graphDataFrag = GraphDataFragment.newInstance();
+		boolean newDataFragmentFound = false;
+		boolean graphFragmentFound = false;
+		int fragments = getSupportFragmentManager().getFragments().size();
+		for(int i=0;i<fragments;i++){
+			Fragment currentFragment = getSupportFragmentManager().getFragments().get(i);
+			if(currentFragment.getClass() == NewDataFragment.class){
+				newDataFrag =(NewDataFragment) currentFragment;
+				newDataFragmentFound = true;
+			}
+			else{
+				if(currentFragment.getClass() == GraphDataFragment.class){
+					graphDataFrag =(GraphDataFragment) currentFragment;
+					graphFragmentFound = true;
+				}
+			}
 		}
+		if(graphFragmentFound && newDataFragmentFound){
+			graphDataFrag.updateData(obj);
+			newDataFrag.updateData(obj);
+		}
+		else if(graphFragmentFound){
+			graphDataFrag.updateData(obj);
+		}
+		else if (newDataFragmentFound){
+			newDataFrag.updateData(obj);
+		}
+	}
 
 	@Override
 	public void onPathSelectedRecieved(List<Location> points) {
-		DataFragment dataFrag = (DataFragment) getSupportFragmentManager().getFragments().get(2);
+		DataFragment dataFrag = DataFragment.newInstance();
+		boolean found = false;
+		int fragments = getSupportFragmentManager().getFragments().size();
+		for(int i=0;i<fragments;i++){
+			Fragment currentFragment = getSupportFragmentManager().getFragments().get(i);
+			if(currentFragment.getClass() == DataFragment.class){
+				dataFrag =(DataFragment) currentFragment;
+				found = true;
+			}
+		}
+		if(found)
 		dataFrag.populateGraphView(points);
 		
 	}
@@ -417,6 +436,13 @@ public class MainActivity extends ActionBarActivity implements
 			
 		}
 		
+	}
+
+	@Override
+	public void OverviewFragmentUpdate() {
+		if(deviceConnected){
+			changeValuesConnected();
+		}
 	}
 
 }
