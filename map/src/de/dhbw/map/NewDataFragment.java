@@ -10,17 +10,18 @@ import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 
-import de.dhbw.ui.GaugeView;
-
+import org.codeandmagic.android.gauge.GaugeView;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import de.dhbw.R;
 
@@ -31,6 +32,7 @@ public class NewDataFragment extends Fragment {
 	private GaugeView mGaugeView2;
 	private ProgressBar p1;
 	int counter = 0;
+	private String [] data;
 	private final Random RAND = new Random();
 	TextView t2;
 	/**
@@ -46,9 +48,17 @@ public class NewDataFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_data_2, container,
 				false);
-		mGaugeView1 = (GaugeView) rootView.findViewById(R.id.gauge_view1);
-		mGaugeView2 = (GaugeView) rootView.findViewById(R.id.gauge_view2);
+		float screenWidth = getActivity().getResources().getDisplayMetrics().widthPixels;
+		int diameter = (int)screenWidth/2 - 20;
+		mGaugeView1 = new GaugeView(rootView.getContext(), 400);
+		mGaugeView2 = new GaugeView(rootView.getContext(), 40);
+		LinearLayout l1 = (LinearLayout) rootView.findViewById(R.id.linear_layout1);
+		l1.setPadding(20, 20,20,0);
+		l1.addView(mGaugeView1, diameter, diameter);
+		l1.addView(mGaugeView2, diameter, diameter);
 		///21spt2 = (TextView) rootView.findViewById(R.id.textView2);
+		TextView timeTextView = (TextView) rootView.findViewById(R.id.textView12);
+		timeTextView.setText(DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_12HOUR));
 		p1 = (ProgressBar) rootView.findViewById(R.id.vertical_progressbar);
 		mTimer.start();
 		// init example series data
@@ -80,20 +90,20 @@ public class NewDataFragment extends Fragment {
 			      , "GraphViewDemo" // heading
 		);
 		graphView3.addSeries(exampleSeries); // data
-		LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.graphLayout);
-		if ((getResources().getConfiguration().screenLayout & 
-			    Configuration.SCREENLAYOUT_SIZE_MASK) == 
-			        Configuration.SCREENLAYOUT_SIZE_LARGE) {
-			layout.addView(graphView,500,150);
-			layout.addView(graphView2,500,150);
-			layout.addView(graphView3,500,150);
-
-			}
-		else {
-			layout.addView(graphView,800,250);
-			layout.addView(graphView2,800,250);
-			layout.addView(graphView3,800,250);
-		}
+//		LinearLayout layout = (LinearLayout) rootView.findViewById(R.id.graphLayout);
+//		if ((getResources().getConfiguration().screenLayout & 
+//			    Configuration.SCREENLAYOUT_SIZE_MASK) == 
+//			        Configuration.SCREENLAYOUT_SIZE_LARGE) {
+//			layout.addView(graphView,500,150);
+//			layout.addView(graphView2,500,150);
+//			layout.addView(graphView3,500,150);
+//
+//			}
+//		else {
+//			layout.addView(graphView,800,250);
+//			layout.addView(graphView2,800,250);
+//			layout.addView(graphView3,800,250);
+//		}
 		 //int orientation = getResources().getConfiguration().orientation;
 		
 		
@@ -105,8 +115,8 @@ public class NewDataFragment extends Fragment {
 
 		@Override
 		public void onTick(final long millisUntilFinished) {
-			mGaugeView1.setTargetValue(RAND.nextInt(101));
-			mGaugeView2.setTargetValue(RAND.nextInt(101));
+			mGaugeView1.setTargetValue(RAND.nextInt(401));
+			mGaugeView2.setTargetValue(RAND.nextInt(41));
 			
 		}
 
@@ -114,19 +124,7 @@ public class NewDataFragment extends Fragment {
 		public void onFinish() {}
 	};
 	public void updateData(String obj) {
-		// TODO Auto-generated method stub
-		Matcher matcher = Pattern.compile("\\d+").matcher(obj);
-	      matcher.find();
-	      try {
-	        int i = Integer.valueOf(matcher.group());
-	        if ( i > counter)
-	          counter = i;
-	        else
-	          counter++;
-	      }
-	      catch (Exception e) {
-	      }
-	      p1.setProgress((counter%1000)/10);
+		data = obj.split(";");
 	}
 	
 }

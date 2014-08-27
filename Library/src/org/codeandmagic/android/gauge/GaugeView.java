@@ -1,3 +1,5 @@
+package org.codeandmagic.android.gauge;
+
 /*******************************************************************************
  * Copyright (c) 2012 Evelina Vrabie
  *
@@ -5,8 +7,6 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *******************************************************************************/
-package de.dhbw.ui;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
@@ -32,8 +32,8 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-import de.dhbw.R;
 
 public class GaugeView extends View {
 
@@ -63,7 +63,7 @@ public class GaugeView extends View {
 
     public static final float SCALE_POSITION = 0.025f;
     public static final float SCALE_START_VALUE = 0.0f;
-    public static final float SCALE_END_VALUE = 100.0f;
+    public static float SCALE_END_VALUE;
     public static final float SCALE_START_ANGLE = 30.0f;
     public static final int SCALE_DIVISIONS = 10;
     public static final int SCALE_SUBDIVISIONS = 5;
@@ -72,7 +72,7 @@ public class GaugeView extends View {
             Color.argb(5, 255, 255, 255)};
     public static final float[] OUTER_SHADOW_POS = {0.90f, 0.95f, 0.99f};
 
-    public static final float[] RANGE_VALUES = {16.0f, 25.0f, 40.0f, 100.0f};
+    public static final float[] RANGE_VALUES = {64.0f, 100.0f, 160.0f, 400.0f};
     public static final int[] RANGE_COLORS = {Color.rgb(0, 0, 0), Color.rgb(0, 0, 0), Color.rgb(0, 0, 0),
             Color.rgb(0, 0, 0)};
 
@@ -166,18 +166,19 @@ public class GaugeView extends View {
     private long mNeedleLastMoved = -1;
     private boolean mNeedleInitialized;
 
-    public GaugeView(final Context context, final AttributeSet attrs, final int defStyle) {
+    public GaugeView(final Context context, final AttributeSet attrs, final int defStyle, float endValue) {
         super(context, attrs, defStyle);
+        SCALE_END_VALUE = endValue;
         readAttrs(context, attrs, defStyle);
         init();
     }
 
-    public GaugeView(final Context context, final AttributeSet attrs) {
-        this(context, attrs, 0);
+    public GaugeView(final Context context, final AttributeSet attrs, float endValue) {
+        this(context, attrs, 0, endValue);
     }
 
-    public GaugeView(final Context context) {
-        this(context, null, 0);
+    public GaugeView(final Context context, float endValue) {
+        this(context, null, 0, endValue);
     }
 
     private void readAttrs(final Context context, final AttributeSet attrs, final int defStyle) {
@@ -464,7 +465,7 @@ public class GaugeView extends View {
     }
 
     public void setDefaultRanges() {
-        mRangeValues = new float[]{16, 25, 40, 100};
+        mRangeValues = new float[]{64, 100, 160, 400};
         mRangeColors = new int[]{Color.rgb(231, 32, 43), Color.rgb(232, 111, 33), Color.rgb(232, 231, 33), Color.rgb(27, 202, 33)};
     }
 
@@ -707,6 +708,7 @@ public class GaugeView extends View {
 
     private Paint getRangePaint(final float value) {
         final int length = mRangeValues.length;
+        Log.e("value",value+"");
         for (int i = 0; i < length - 1; i++) {
             if (value < mRangeValues[i]) return mRangePaints[i];
         }

@@ -55,21 +55,7 @@ public static List<Location> getPoints(File gpxFile)
 
             pt.setLatitude(Double.parseDouble(attrs.getNamedItem("lat").getTextContent()));
             pt.setLongitude(Double.parseDouble(attrs.getNamedItem("lon").getTextContent()));
-            // set distance from beginning for each point
-            Double distance = 0.0;
-            if(j>0){
-              Double pointDistance = calculateDistance(points.get(j-1), pt);
-              distance += pointDistance;
-              Bundle extras = new Bundle(1);
-              extras.putDouble("distance", distance);
-              pt.setExtras(extras);
-            }
-            else{
-            	Bundle extras = new Bundle(1);
-                extras.putFloat("distance", 0);
-                pt.setExtras(extras);
-            }
-
+          
             for(int k = 0; k<props.getLength(); k++)
             {
                 Node item2 = props.item(k);
@@ -118,30 +104,6 @@ public static List<Location> getPoints(File gpxFile)
     }
 
     return points;
-}
-
-public static double calculateDistance(Location startPoint, Location endPoint){
-	double theta = startPoint.getLongitude() - endPoint.getLongitude();
-	  double dist = Math.sin(deg2rad(startPoint.getLatitude())) * Math.sin(deg2rad(endPoint.getLatitude())) + Math.cos(deg2rad(startPoint.getLatitude())) * Math.cos(deg2rad(endPoint.getLatitude())) * Math.cos(deg2rad(theta));
-	  dist = Math.acos(dist);
-	  dist = rad2deg(dist);
-	  dist = dist * 60 * 1.1515;
-	  return (dist);
-	
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*::  This function converts decimal degrees to radians             :*/
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-private static double deg2rad(double deg) {
-  return (deg * Math.PI / 180.0);
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*::  This function converts radians to decimal degrees             :*/
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-private static double rad2deg(double rad) {
-  return (rad * 180 / Math.PI);
 }
 
 public static SimpleDateFormat getDateFormatter()

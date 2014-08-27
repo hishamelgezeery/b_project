@@ -38,12 +38,20 @@ public class DataFragment extends Fragment {
 	
 	public void populateGraphView(List <Location> points) {
         // init example series data
+		TextView trackStatus = (TextView) getView().findViewById(R.id.trackStatus);
+		trackStatus.setText(R.string.track_loaded);
 		GraphViewData[] plots = new GraphViewData[points.size()];
+		double distance = 0;
 		for(int i = 0;i<points.size();i++){
 			Location point = points.get(i);
 			double altitude = point.getAltitude();
-			double distance = point.getExtras().getDouble("distance");
-			Log.e("distance", ""+distance);
+			if(i==0){
+				distance = 0;
+			}
+			else{
+				distance += point.distanceTo(points.get(i-1));
+			}
+			 
 			plots[i] = new GraphViewData(distance, altitude);
 		}
         GraphViewSeries exampleSeries = new GraphViewSeries(plots);

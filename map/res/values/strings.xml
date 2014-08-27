@@ -24,5 +24,7 @@
     <string name="title_connected_to">connected: </string>
     <string name="title_connecting">connecting...</string>
     <string name="title_not_connected">not connected</string>
+    <string name="track_not_loaded">Track not loaded!</string>
+    <string name="track_loaded"> Track loaded </string>
 
 </resources>

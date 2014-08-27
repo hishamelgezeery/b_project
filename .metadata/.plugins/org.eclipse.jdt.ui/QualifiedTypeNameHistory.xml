@@ -16,8 +16,15 @@
 <fullyQualifiedTypeName name="com.example.R.layout"/>
 <fullyQualifiedTypeName name="com.example.R.id"/>
 <fullyQualifiedTypeName name="com.example.map.MainActivity"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="org.osmdroid.views.overlay.ScaleBarOverlay"/>
 <fullyQualifiedTypeName name="android.support.v7.appcompat.R"/>
+<fullyQualifiedTypeName name="de.dhbw.map.OverViewFragment.OverViewFragmentListener"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.MenuItem"/>
+<fullyQualifiedTypeName name="com.jjoe64.graphview.GraphViewSeries"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="de.dhbw.R.string"/>
+<fullyQualifiedTypeName name="de.dhbw.ui.GaugeView"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
 </qualifiedTypeNameHistroy>
