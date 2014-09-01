@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Locale;
 
 import de.dhbw.R;
-
 import de.dhbw.bluetooth.BluetoothCommandService;
 import de.dhbw.bluetooth.DeviceListActivity;
+import de.dhbw.ui.DataFragment.DataFragmentListener;
 import de.dhbw.ui.MapFragment.OnPathSelectedListener;
 import de.dhbw.ui.OverViewFragment.OverViewFragmentListener;
-
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -38,7 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements
-		ActionBar.TabListener, OverViewFragmentListener, OnPathSelectedListener {
+		ActionBar.TabListener, OverViewFragmentListener, OnPathSelectedListener, DataFragmentListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -458,6 +457,13 @@ public class MainActivity extends ActionBarActivity implements
 		if (deviceConnected) {
 			changeValuesConnected();
 		}
+	}
+
+	@Override
+	public void onDataReceiveRequest(String textData) {
+		byte[] data = textData.getBytes();
+		mCommandService.write(data);
+		
 	}
 
 }

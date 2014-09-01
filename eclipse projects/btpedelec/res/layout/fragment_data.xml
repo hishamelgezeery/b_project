@@ -28,4 +28,27 @@
        android:text="@string/track_not_loaded"
        android:textAppearance="?android:attr/textAppearanceMedium" />
 
+   <Button
+       android:id="@+id/sendDataButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignRight="@+id/graph1"
+       android:layout_below="@+id/trackStatus"
+       android:layout_marginRight="30dp"
+       android:layout_marginTop="23dp"
+       android:text="Send" />
+
+   <EditText
+       android:id="@+id/SendDataField"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBottom="@+id/sendDataButton"
+       android:layout_toLeftOf="@+id/sendDataButton"
+       android:contentDescription="Enter data.."
+       android:ems="10"
+       android:inputType="number"
+       android:width="150dp" >
+       <requestFocus />
+       </EditText>
+
 </RelativeLayout>

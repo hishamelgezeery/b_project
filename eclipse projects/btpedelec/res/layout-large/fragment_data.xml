@@ -18,5 +18,25 @@
        android:background="#ffffff"
        android:orientation="vertical" >
    </LinearLayout>
+   <EditText
+       android:id="@+id/SendDataField"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/graph1"
+       android:layout_centerVertical="true"
+       android:layout_marginLeft="25dp"
+       android:ems="10" android:inputType="number">
+
+       <requestFocus />
+   </EditText>
+
+   <Button
+       android:id="@+id/sendDataButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBottom="@+id/SendDataField"
+       android:layout_marginLeft="47dp"
+       android:layout_toRightOf="@+id/SendDataField"
+       android:text="Send" />
 
 </RelativeLayout>
